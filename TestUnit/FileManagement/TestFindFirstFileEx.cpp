@@ -43,7 +43,7 @@ void Test_FindFirstFileEx_With_WildCard(FINDEX_INFO_LEVELS fInfoLevelId, FINDEX_
 
     if(!MakeFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일 생성에 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to create a file." << endl;
         return;
     }
 
@@ -79,7 +79,7 @@ void Test_FindFirstFileEx_With_Question(FINDEX_INFO_LEVELS fInfoLevelId, FINDEX_
 
     if(!MakeFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일 생성에 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to create a file." << endl;
         return;
     }
 
@@ -115,7 +115,7 @@ void Test_FindFirstFileEx_With_NoWildCard(FINDEX_INFO_LEVELS fInfoLevelId, FINDE
 
     if(!MakeFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일 생성에 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to create a file." << endl;
         return;
     }
 

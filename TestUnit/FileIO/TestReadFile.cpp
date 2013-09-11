@@ -213,7 +213,7 @@ void Test_ReadWriteFileNormal()
     wstring fileName(_T("ReadWriteFileNormal.txt"));
     if(!TouchFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성하는데 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to create a file." << endl;
         return;
     }
 
@@ -264,7 +264,7 @@ void ReadWriteTest()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 

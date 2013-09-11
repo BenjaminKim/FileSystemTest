@@ -19,7 +19,7 @@ void Test_GetFinalPathNameByHandleAll()
     Test_GetFinalPathNameByHandle(FILE_NAME_OPENED | VOLUME_NAME_NONE);
     Test_GetFinalPathNameByHandle(FILE_NAME_OPENED | VOLUME_NAME_NT);
 
-    MSG(심볼릭 링크 테스트도 케이스에 집어 넣을 것);
+    MSG(Add symbolic link file test case);
 }
 
 void Test_GetFinalPathNameByHandle(DWORD dwFlags)
@@ -49,7 +49,7 @@ void Test_GetFinalPathNameByHandle(DWORD dwFlags)
         BOOL fOk = uDeleteFile(fileName.c_str());
         if(!fOk)
         {
-            log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제하지 못했습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Failed to delete the file." << endl;
             return;
         }
 
@@ -60,7 +60,7 @@ void Test_GetFinalPathNameByHandle(DWORD dwFlags)
     BOOL fOk = uDeleteFile(fileName.c_str());
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제하지 못했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to delete the file." << endl;
         return;
     }
 

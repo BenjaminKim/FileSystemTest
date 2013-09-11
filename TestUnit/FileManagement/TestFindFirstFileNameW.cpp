@@ -24,7 +24,7 @@ void Test_FindFirstFileNameW()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일 생성이 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to create a file." << endl;
         return;
     }
 
@@ -40,7 +40,7 @@ void Test_FindFirstFileNameW()
 
         if(!fOk)
         {
-            log.GetStream(TestLog::MT_ERROR) << L"파일 삭제가 실패했습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Failed to delete the file." << endl;
             return;
         }
     }

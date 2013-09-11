@@ -308,7 +308,7 @@ END:
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"颇老 积己 角菩" << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to create a file" << endl;
         return;
     }
 
@@ -426,7 +426,7 @@ END:
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"颇老 积己 角菩" << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to a create file." << endl;
         return;
     }
 

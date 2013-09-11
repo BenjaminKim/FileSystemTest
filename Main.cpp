@@ -305,7 +305,7 @@ int _tmain(int argc, TCHAR* argv[])
     }
     else
     {
-        if(!SetBasePath(L"D:\\"))
+        if(!SetBasePath(L"C:\\"))
         {
             return EXIT_FAILURE;
         }

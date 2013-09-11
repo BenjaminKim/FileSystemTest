@@ -65,7 +65,7 @@ void Test_SetFileAttributes(DWORD dwFileAttributes)
 
     if(!TouchFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << GetLastErrorStr() << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << GetLastErrorStr() << endl;
         return;
     }
    
@@ -81,7 +81,7 @@ void Test_SetFileAttributes(DWORD dwFileAttributes)
 
         if(!fOk)
         {
-            log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << GetLastErrorStr() << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << GetLastErrorStr() << endl;
             return;
         }
     }
@@ -92,7 +92,7 @@ void Test_SetFileAttributes(DWORD dwFileAttributes)
     
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << GetLastErrorStr() << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << GetLastErrorStr() << endl;
         return;
     }
 

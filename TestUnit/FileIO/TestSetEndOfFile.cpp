@@ -20,7 +20,7 @@ void Test_SetEndOfFile(const LONGLONG& jQuadPart, DWORD dwMoveMethod)
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
     }
 
     {
@@ -47,7 +47,7 @@ void Test_SetEndOfFile(const LONGLONG& jQuadPart, DWORD dwMoveMethod)
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
         return;
     }
 
@@ -76,7 +76,7 @@ void Test_SetEndOfFileAndGetFileSize(const LONGLONG& jQuadPart, DWORD dwMoveMeth
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
     }
 
     {
@@ -112,7 +112,7 @@ void Test_SetEndOfFileAndGetFileSize(const LONGLONG& jQuadPart, DWORD dwMoveMeth
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
         return;
     }
 
@@ -128,7 +128,7 @@ void Test_SetEndOfFileAndGetFileSize2()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
     }
 
     File f2(fileName, GENERIC_WRITE, FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE, OPEN_EXISTING);
@@ -168,7 +168,7 @@ void Test_SetEndOfFileAndGetFileSize2()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
         return;
     }
 

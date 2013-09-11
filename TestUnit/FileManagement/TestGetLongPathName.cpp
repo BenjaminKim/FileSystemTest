@@ -23,7 +23,7 @@ void Test_GetLongPathName_Normal()
 
     if(!TouchFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성하는데 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to create a file." << endl;
         return;
     }
 
@@ -49,7 +49,7 @@ BOOL Test_GetLongPathName(TestLog& log, const std::wstring& sfilename, DWORD& la
 
     if(!uDeleteFile(sfilename.c_str()))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일 삭제가 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to delete the file." << endl;
         return FALSE;
     }
 

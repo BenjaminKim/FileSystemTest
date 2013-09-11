@@ -66,7 +66,7 @@ void Test_WriteFileAndGetDiskFreeSpace()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
     }
 
     DWORD dwSectorsPerCluster;
@@ -134,7 +134,7 @@ void Test_WriteFileAndGetDiskFreeSpace()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
         return;
     }
 
@@ -150,7 +150,7 @@ void Test_TruncateFileAndGetDiskFreeSpace()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
     }
 
     DWORD dwSectorsPerCluster;
@@ -216,7 +216,7 @@ void Test_TruncateFileAndGetDiskFreeSpace()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
         return;
     }
 

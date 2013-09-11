@@ -11,14 +11,14 @@ using namespace std;
 
 void Test_MoveDirectory_Normal()
 {
-    DEF_TESTLOG_T("Test_MoveDirectory_Normal, 기본 디렉토리 이동 테스트");
+    DEF_TESTLOG_T("Test_MoveDirectory_Normal");
 
     const wstring sSrcFileName = GetSrcFileName();
     const wstring sDstFileName = GetDstFileName();
 
     if(!CreateDirectory(sSrcFileName.c_str(), 0))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"디렉토리를 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a directory" << endl;
         return;
     }
 
@@ -26,7 +26,7 @@ void Test_MoveDirectory_Normal()
 
     if(!result)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"디렉토리 이동이 실패했습니다.." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot move a directory." << endl;
     }
 
     if(uRemoveDirectory(sSrcFileName.c_str()))
@@ -71,7 +71,7 @@ void Test_MoveDirectory_NoExistingSrc()
 
     if(!result)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"디렉토리 이동이 실패했습니다.." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot move a directory." << endl;
     }
 
     if(!uRemoveDirectory(pSrcFileName.c_str()))
@@ -96,13 +96,13 @@ void Test_MoveDirectory_ExistingDst()
 
     if(!uCreateDirectory(pSrcFileName.c_str(), 0))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"디렉토리를 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a directory" << endl;
         return;
     }
 
     if(!uCreateDirectory(pDstFileName.c_str(), 0))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"디렉토리를 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a directory" << endl;
         return;
     }
 
@@ -110,7 +110,7 @@ void Test_MoveDirectory_ExistingDst()
 
     if(!result)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"디렉토리 이동이 실패했습니다.." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot move a directory." << endl;
     }
 
     if(!uRemoveDirectory(pSrcFileName.c_str()))
@@ -157,7 +157,7 @@ void Test_MoveDirirectory_WithOpenedSubFiles()
         log.GetStream(TestLog::MT_ERROR) << L"디렉토리 이름을 변경할 수 없습니다." << endl;
         if(!uDeleteFile((dirName + L"\\" + fileName).c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
         }
 
         if(!uRemoveDirectory(dirName.c_str()))
@@ -172,7 +172,7 @@ void Test_MoveDirirectory_WithOpenedSubFiles()
         // but try to clean up.
         if(!uDeleteFile((L"MOVED_" + dirName + L"\\" + fileName).c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
         }
 
         if(!uRemoveDirectory((L"MOVED_" + dirName).c_str()))

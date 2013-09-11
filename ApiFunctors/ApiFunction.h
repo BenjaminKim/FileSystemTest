@@ -58,8 +58,6 @@ public:
     void EnableDateTimeOutput(bool fEnable);
 
 protected:
-    ///컴파일러 경고 메세지 회피.
-    ///할당 연산자가 필요해질 때 구현 하도록 한다.
     ApiFunction& operator=(const ApiFunction&) {}
     void SetElapsedTime(const double& elapsedTime) { elapsedtime_ = elapsedTime; }
     ApiStatistics statistics_;

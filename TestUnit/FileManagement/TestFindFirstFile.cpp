@@ -261,7 +261,7 @@ void Test_FindFirstFile_DeletePending()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
    
@@ -273,7 +273,7 @@ void Test_FindFirstFile_DeletePending()
             GetLastError() << L"(" << GetErrorDefineString(GetLastError()) << L")" << endl;
         if(!DeleteFileOrCheck(log, fileName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
         }
         return;
     }

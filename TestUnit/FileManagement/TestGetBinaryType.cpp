@@ -10,6 +10,7 @@ using namespace std;
 void Test_GetBinaryType()
 {
     DEF_TESTLOG_T("GetBinaryType, ");
+    FixLater;
     wstring path = L"F:\\Downloads\\ctags58\\ctags58\\ctags.exe";
 
     std::wstring targetPath = GetWidTestBasePath() + L"ctags.exe";
@@ -18,7 +19,7 @@ void Test_GetBinaryType()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일 복사에 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to copy a file." << endl;
         return;
     }
 

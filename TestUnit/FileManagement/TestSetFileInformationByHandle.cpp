@@ -31,7 +31,7 @@ static void Test_SetFileInformationByHandle_Disposition_NormalFile()
 
     if(!TouchFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << GetLastErrorStr() << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << GetLastErrorStr() << endl;
         failed = TRUE;
     }
 
@@ -134,7 +134,7 @@ static void Test_SetFileInformationByHandle_Disposition_ReadOnlyFile1()
 
     if(!TouchFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << GetLastError() << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << GetLastError() << endl;
         return;
     }
 
@@ -185,7 +185,7 @@ static void Test_SetFileInformationByHandle_Disposition_ReadOnlyFile2()
 
     if(!TouchFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << GetLastError() << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << GetLastError() << endl;
         return;
     }
 
@@ -236,7 +236,7 @@ void Test_SetFileInformationByHandle_Delete_Twice()
     
     if(!TouchFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << GetLastErrorStr() << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << GetLastErrorStr() << endl;
         return;
     }
 
@@ -311,7 +311,7 @@ static void Test_SetFileInformationByHandle_Delete_No_Have_Delete_DesireAccess()
 
     if(!TouchFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << GetLastErrorStr() << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << GetLastErrorStr() << endl;
         return;
     }
 
@@ -376,7 +376,7 @@ void Test_SetFileInformationByHandle_FileTime(LARGE_INTEGER CreationTime,
 
     if(!TouchFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << GetLastErrorStr() << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << GetLastErrorStr() << endl;
         failed = TRUE;
     }
 
@@ -434,7 +434,7 @@ void Test_Writefile_FileTime()
 
     if(!TouchFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << GetLastErrorStr() << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << GetLastErrorStr() << endl;
         failed = TRUE;
     }
 
@@ -541,7 +541,7 @@ void Test_DeleteFile_RenamedFile()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -554,7 +554,7 @@ void Test_DeleteFile_RenamedFile()
                 GetLastError() << L"(" << GetErrorDefineString(GetLastError()) << L")" << endl;
             if(!DeleteFileOrCheck(log, fileName.c_str()))
             {
-                log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+                log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
             }
             return;
         }

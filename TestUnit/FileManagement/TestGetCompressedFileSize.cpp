@@ -12,7 +12,7 @@ void Test_GetCompressedFileSize()
 
     if(!MakeFile(log, fileName, 100))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일 생성에 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to create a file." << endl;
         return;
     }
 

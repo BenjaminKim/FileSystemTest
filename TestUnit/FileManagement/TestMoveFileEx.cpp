@@ -15,7 +15,7 @@ void Test_MoveFileEx_Basic(DWORD dwFlags)
 
     if(!MakeFile(log, pSrcFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -28,11 +28,11 @@ void Test_MoveFileEx_Basic(DWORD dwFlags)
 
     if(!DeleteFileOrCheck(log, pSrcFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
     }
     if(!DeleteFileOrCheck(log, pDstFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
         return;
     }
 
@@ -51,7 +51,7 @@ void Test_MoveFileEx_NoExistingSrc(DWORD dwFlags)
     {
         if(!uDeleteFile(pSrcFileName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"존재하는 파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"존재하는 Cannot delete the file." << endl;
             return;
         }
     }
@@ -65,11 +65,11 @@ void Test_MoveFileEx_NoExistingSrc(DWORD dwFlags)
 
     if(!DeleteFileOrCheck(log, pSrcFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
     }
     if(!DeleteFileOrCheck(log, pDstFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
         return;
     }
 
@@ -87,7 +87,7 @@ void Test_MoveFileEx_SharingViolationSrcShareMode(DWORD dwShareMode, DWORD dwFla
 
     if(!MakeFile(log, pSrcFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -110,11 +110,11 @@ void Test_MoveFileEx_SharingViolationSrcShareMode(DWORD dwShareMode, DWORD dwFla
 
     if(!DeleteFileOrCheck(log, pSrcFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
     }
     if(!DeleteFileOrCheck(log, pDstFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
         return;
     }
 
@@ -143,13 +143,13 @@ void Test_MoveFileEx_ExistingDst(DWORD dwFlags)
 
     if(!MakeFile(log, pSrcFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
     if(!TouchFile(log, pDstFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -162,11 +162,11 @@ void Test_MoveFileEx_ExistingDst(DWORD dwFlags)
 
     if(!DeleteFileOrCheck(log, pSrcFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
     }
     if(!DeleteFileOrCheck(log, pDstFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
         return;
     }
 
@@ -185,13 +185,13 @@ void Test_MoveFileEx_ExistingDstSharingViolationShareMode(DWORD dwShareMode, DWO
 
     if(!MakeFile(log, pSrcFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
     if(!TouchFile(log, pDstFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -212,11 +212,11 @@ void Test_MoveFileEx_ExistingDstSharingViolationShareMode(DWORD dwShareMode, DWO
 
     if(!DeleteFileOrCheck(log, pSrcFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
     }
     if(!DeleteFileOrCheck(log, pDstFileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
         return;
     }
 

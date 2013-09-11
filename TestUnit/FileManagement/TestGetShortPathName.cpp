@@ -12,7 +12,7 @@ void Test_GetShortPathName()
 
     if(!TouchFile(log, fileName))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일 생성이 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to create a file." << endl;
         return;
     }
 
@@ -21,7 +21,7 @@ void Test_GetShortPathName()
 
     if(!uDeleteFile(fileName.c_str()))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일 삭제가 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Failed to delete the file." << endl;
         return;
     }
 

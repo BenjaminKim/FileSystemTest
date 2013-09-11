@@ -14,7 +14,7 @@ void Test_GetFileSizeEx()
     wstring fileName = GetTestFileName();
     if(!MakeFile(log, fileName.c_str()))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -35,7 +35,7 @@ void Test_GetFileSizeEx()
 
         if(!fOk)
         {
-            log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
             return;
         }
         return;
@@ -45,7 +45,7 @@ void Test_GetFileSizeEx()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
         return;
     }    
 
@@ -59,7 +59,7 @@ void Test_WriteAndGetFileSize()
     wstring fileName = GetTestFileName();
     if(!MakeFile(log, fileName.c_str()))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -90,7 +90,7 @@ void Test_WriteAndGetFileSize()
 
         if(!fOk)
         {
-            log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
             return;
         }
         return;
@@ -100,7 +100,7 @@ void Test_WriteAndGetFileSize()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
         return;
     }    
 
@@ -114,7 +114,7 @@ void Test_WriteAndGetFileSize2()
     wstring fileName = GetTestFileName();
     if(!MakeFile(log, fileName.c_str()))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -146,7 +146,7 @@ void Test_WriteAndGetFileSize2()
 
         if(!fOk)
         {
-            log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
             return;
         }
         return;
@@ -156,7 +156,7 @@ void Test_WriteAndGetFileSize2()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
         return;
     }    
 

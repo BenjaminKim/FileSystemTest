@@ -19,7 +19,7 @@ void Test_DeleteFile_Normal()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -29,7 +29,7 @@ void Test_DeleteFile_Normal()
     {
         if(!DeleteFileOrCheck(log, fileName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
             return;
         }
     }
@@ -47,7 +47,7 @@ void Test_DeleteFile_ReadOnly()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -58,7 +58,7 @@ void Test_DeleteFile_ReadOnly()
     {
         if(!DeleteFileOrCheck(log, fileName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"읽기 전용 파일을 삭제할 수 없습니다. -삭제할 수 있어야 한다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"읽기 전용 Cannot delete the file. -삭제할 수 있어야 한다." << endl;
             return;
         }
     }
@@ -75,7 +75,7 @@ void Test_DeleteFile_OpenFile()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -88,7 +88,7 @@ void Test_DeleteFile_OpenFile()
             log.GetStream(TestLog::MT_ERROR) << L"CreateFile" << endl;
             if(!DeleteFileOrCheck(log, fileName.c_str()))
             {
-                log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+                log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
             }
             return;
         }
@@ -107,7 +107,7 @@ void Test_DeleteFile_OpenFile()
     {
         if(!DeleteFileOrCheck(log, fileName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
             return;
         }
     }
@@ -124,7 +124,7 @@ void Test_DeleteFile_SharingViolation()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -137,7 +137,7 @@ void Test_DeleteFile_SharingViolation()
             log.GetStream(TestLog::MT_ERROR) << L"CreateFile" << endl;
             if(!DeleteFileOrCheck(log, fileName.c_str()))
             {
-                log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+                log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
             }
             return;
         }
@@ -156,7 +156,7 @@ void Test_DeleteFile_SharingViolation()
     {
         if(!DeleteFileOrCheck(log, fileName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
             return;
         }
     }
@@ -175,7 +175,7 @@ void Test_DeleteFile_NoExist()
     {
         if(!DeleteFileOrCheck(log, fileName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
             return;
         }
     }
@@ -192,7 +192,7 @@ void Test_DeleteFile_DeletedFile()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -206,7 +206,7 @@ void Test_DeleteFile_DeletedFile()
                 GetLastError() << L"(" << GetErrorDefineString(GetLastError()) << L")" << endl;
             if(!DeleteFileOrCheck(log, fileName.c_str()))
             {
-                log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+                log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
             }
             return;
         }
@@ -229,7 +229,7 @@ void Test_DeleteFile_DeletedFile()
     {
         if(!DeleteFileOrCheck(log, fileName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
             return;
         }
     }
@@ -246,7 +246,7 @@ void Test_DeleteFile_DeletedFileSharingViolation()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 생성할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot create a file." << endl;
         return;
     }
 
@@ -260,7 +260,7 @@ void Test_DeleteFile_DeletedFileSharingViolation()
                 GetLastError() << L"(" << GetErrorDefineString(GetLastError()) << L")" << endl;
             if(!DeleteFileOrCheck(log, fileName.c_str()))
             {
-                log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+                log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
             }
             return;
         }
@@ -285,7 +285,7 @@ void Test_DeleteFile_DeletedFileSharingViolation()
     {
         if(!DeleteFileOrCheck(log, fileName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"만들어진 파일을 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file created before." << endl;
             return;
         }
     }
