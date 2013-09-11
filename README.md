@@ -1,8 +1,14 @@
-## How do you test your file system work correctly? `FileSystemTest` could help you.
+### How do you test your file system work correctly? `FileSystemTest` could help you.
 
-## Execution
+### Execution
 
-```bash
+```
+# -t: Print datetime
+# -d: Print Api duration
+# -s: Calcurate statistics
+# -f: Full logging
+# And the first argument `C:\test_base_directory` is a base directory you want to test.
+# In this example, it points a NTFS volume. But you can point and test any filesystems you want.(You need to mount it.)
 C:\YourPath> FileSystemTest.exe C:\test_base_directory -t -d -s -f
 ```
 
@@ -111,4 +117,225 @@ The configuration was set to print api statistics.
 [23:40:49.742] Duration: 0.000193719 second.
 (MESSAGE) Deletion success.
 (Case6)[Calling CreateFile with dwDesiredAccess, dwCreateDisposition.]: End. Success
+
+# ...and hundred of test cases are omitted here.
+
+# And it gives you a statistic for tested functions.
+# You could measure how your file system fast.
+
+Function Name : CreateDirectory
+Min : 0.000292930330
+Max : 0.000369049452
+Sum : 0.000661979781
+Count : 2
+Operation per sec : 3,021.240310077520
+Avg : 0.000330989891
+StdDev : 0.000038059561
+
+Function Name : CreateDirectoryEx
+Min : 0.000197139974
+Max : 0.000587143566
+Sum : 0.063823745745
+Count : 255
+Operation per sec : 3,995.378162521441
+Avg : 0.000250289199
+StdDev : 0.000052711293
+
+Function Name : RemoveDirectory
+Min : 0.000094079814
+Max : 0.000222370469
+Sum : 0.000442602761
+Count : 3
+Operation per sec : 6,778.086956521739
+Avg : 0.000147534254
+StdDev : 0.000054513046
+
+Function Name : CopyFile
+Min : 0.000091941636
+Max : 0.009981868254
+Sum : 0.083748995057
+Count : 20
+Operation per sec : 238.808835694080
+Avg : 0.004187449753
+StdDev : 0.004236031032
+
+Function Name : CopyFileEx
+Min : 0.000085954739
+Max : 0.009361796753
+Sum : 0.063747626623
+Count : 21
+Operation per sec : 329.424028979674
+Avg : 0.003035601268
+StdDev : 0.004084865451
+
+Function Name : CreateFile
+Min : 0.000022664682
+Max : 0.000303621218
+Sum : 0.008617710953
+Count : 75
+Operation per sec : 8,703.007145692734
+Avg : 0.000114902813
+StdDev : 0.000077592803
+
+Function Name : DeleteFile
+Min : 0.000060724244
+Max : 0.000205265048
+Sum : 0.000695335352
+Count : 7
+Operation per sec : 10,067.084870848710
+Avg : 0.000099333622
+StdDev : 0.000048242309
+
+Function Name : GetFileAttributes
+Min : 0.000061151879
+Max : 0.000516583705
+Sum : 0.009245907528
+Count : 116
+Operation per sec : 12,546.091300124879
+Avg : 0.000079706099
+StdDev : 0.000041475734
+
+Function Name : GetFileInformationByHandleEx
+Min : 0.000035921383
+Max : 0.000131711739
+Sum : 0.001761430697
+Count : 25
+Operation per sec : 14,193.008011653314
+Avg : 0.000070457228
+StdDev : 0.000022356883
+
+Function Name : GetFileSize
+Min : 0.000035493748
+Max : 0.000035493748
+Sum : 0.000035493748
+Count : 1
+Operation per sec : 28,173.975903614457
+Avg : 0.000035493748
+StdDev : 0.000000000000
+
+Function Name : GetFileSizeEx
+Min : 0.000035493748
+Max : 0.000035493748
+Sum : 0.000035493748
+Count : 1
+Operation per sec : 28,173.975903614457
+Avg : 0.000035493748
+StdDev : 0.000000000000
+
+Function Name : GetFileType
+Min : 0.000029079215
+Max : 0.000029079215
+Sum : 0.000029079215
+Count : 1
+Operation per sec : 34,388.823529411762
+Avg : 0.000029079215
+StdDev : 0.000000000000
+
+Function Name : SetFileAttributes
+Min : 0.000086810010
+Max : 0.000507175724
+Sum : 0.016205247943
+Count : 75
+Operation per sec : 4,628.130360205832
+Avg : 0.000216069973
+StdDev : 0.000067332896
+
+Function Name : MoveFile
+Min : 0.000061151879
+Max : 0.006358940148
+Sum : 0.012365508630
+Count : 30
+Operation per sec : 2,426.103195462720
+Avg : 0.000412183621
+StdDev : 0.001110592118
+
+Function Name : MoveFileEx
+Min : 0.000048750449
+Max : 0.008298267221
+Sum : 0.053534407554
+Count : 152
+Operation per sec : 2,839.295454000816
+Avg : 0.000352200050
+StdDev : 0.000747844944
+
+Function Name : SetFileInformationByHandle
+Min : 0.000025658131
+Max : 0.000765895212
+Sum : 0.007700432767
+Count : 30
+Operation per sec : 3,895.884933636919
+Avg : 0.000256681092
+StdDev : 0.000166413330
+
+Function Name : CreateDirectory
+Min : 0.000157797506
+Max : 0.000715861857
+Sum : 0.067548451104
+Count : 302
+Operation per sec : 4,470.864913458009
+Avg : 0.000223670368
+StdDev : 0.000069670169
+
+Function Name : RemoveDirectory
+Min : 0.000051316262
+Max : 0.000988693317
+Sum : 0.088256273413
+Count : 564
+Operation per sec : 6,390.480565165561
+Avg : 0.000156482754
+StdDev : 0.000052658218
+
+Function Name : ReadFile
+Min : 0.000059868972
+Max : 0.000415661723
+Sum : 0.004417474898
+Count : 63
+Operation per sec : 14,261.541142303968
+Avg : 0.000070118649
+StdDev : 0.000044347422
+
+Function Name : WriteFile
+Min : 0.000049178085
+Max : 0.001336360993
+Sum : 0.063155351431
+Count : 522
+Operation per sec : 8,265.332836780995
+Avg : 0.000120987263
+StdDev : 0.000093946882
+
+Function Name : CreateFile
+Min : 0.000058586066
+Max : 0.008014744873
+Sum : 0.150909153111
+Count : 716
+Operation per sec : 4,744.576357639166
+Avg : 0.000210766974
+StdDev : 0.000325589034
+
+Function Name : DeleteFile
+Min : 0.000066283505
+Max : 0.000561485435
+Sum : 0.015803698192
+Count : 60
+Operation per sec : 3,796.579716419526
+Avg : 0.000263394970
+StdDev : 0.000088725795
+
+Function Name : SetFileAttributes
+Min : 0.000059868972
+Max : 0.000371187629
+Sum : 0.139102991738
+Count : 843
+Operation per sec : 6,060.257866971633
+Avg : 0.000165009480
+StdDev : 0.000048513022
+
+Function Name : CloseHandle
+Min : 0.000039342468
+Max : 0.015926857221
+Sum : 1.799948683738
+Count : 714
+Operation per sec : 396.677975572763
+Avg : 0.002520936532
+StdDev : 0.003741849575
 ```
