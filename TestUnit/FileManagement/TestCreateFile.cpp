@@ -32,12 +32,9 @@ bool Sub_CreateFile_AccessDisposition(TestLog& log, LPCWSTR lpFileName, DWORD dw
     return true;
 }
 
-/**
-@brief CreateFile, 파일이 없는 상태에서 특정 dwDesiredAccess, dwCreateDisposition 값으로 호출
-*/
 void Test_CreateFile_NewFile(DWORD dwDesiredAccess, DWORD dwCreateDisposition)
 {
-    DEF_TESTLOG_T("CreateFile, 파일이 없는 상태에서 특정 dwDesiredAccess, dwCreateDisposition 값으로 호출");
+    DEF_TESTLOG_T("Calling CreateFile with dwDesiredAccess, dwCreateDisposition.");
 
     wstring fileName = GetTestFileName();
 
