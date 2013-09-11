@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B2711C11-DD4E-4CFA-BAB5-74DD077F7EB9}</ProjectGuid>
+    <RootNamespace>FileSystemTest</RootNamespace>
+    <SccProjectName>Svn</SccProjectName>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</GenerateManifest>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <RunCodeAnalysis Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/include;$(ProjectDir)\ApiFunctors;%(AdditionalIncludeDirectories);</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <EnablePREfast>true</EnablePREfast>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(ProjectDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(RNDBASE)\bin\Debug"
+copy "$(OutDir)$(ProjectName).exe" "$(RNDBASE)\bin\Debug\$(ProjectName).exe"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)/include;$(ProjectDir)\ApiFunctors;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(ProjectDir)/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(RNDBASE)\bin\Release"
+copy "$(OutDir)$(ProjectName).exe" "$(RNDBASE)\bin\Release\$(ProjectName).exe"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="TestUnit\PTest.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestCreateFileMapping.cpp" />
+    <ClCompile Include="TestUnit\TestLog.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="ApiFunctors\ApiFunction.cpp" />
+    <ClCompile Include="TestUnit\Combinator.cpp" />
+    <ClCompile Include="TestUnit\TestFileName.cpp" />
+    <ClCompile Include="TestUnit\TestUtility.cpp" />
+    <ClCompile Include="TestUnit\DirectoryManagement\TestCreateDirectoryEx.cpp" />
+    <ClCompile Include="TestUnit\DirectoryManagement\TestCreateDirectoryTransacted.cpp" />
+    <ClCompile Include="TestUnit\DirectoryManagement\TestCreateRemoveDirectory.cpp" />
+    <ClCompile Include="TestUnit\DirectoryManagement\TestFindCloseChangeNotification.cpp" />
+    <ClCompile Include="TestUnit\DirectoryManagement\TestFindFirstChangeNotification.cpp" />
+    <ClCompile Include="TestUnit\DirectoryManagement\TestFindNextChangeNotification.cpp" />
+    <ClCompile Include="TestUnit\DirectoryManagement\TestGetCurrentDirectory.cpp" />
+    <ClCompile Include="TestUnit\DirectoryManagement\TestMoveDirectory.cpp" />
+    <ClCompile Include="TestUnit\DirectoryManagement\TestReadDirectoryChangesW.cpp" />
+    <ClCompile Include="TestUnit\DirectoryManagement\TestRemoveDirectoryTransacted.cpp" />
+    <ClCompile Include="TestUnit\DirectoryManagement\TestSetCurrentDirectory.cpp" />
+    <ClCompile Include="TestUnit\DiskManagement\TestGetDiskFreeSpace.cpp" />
+    <ClCompile Include="TestUnit\DiskManagement\TestGetDiskFreeSpaceEx.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestCancelIo.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestCancelIoEx.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestCancelSynchronousIo.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestCreateIoCompletionPort.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestFlushFileBuffers.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestGetQueuedCompletionStatus.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestGetQueuedCompletionStatusEx.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestLockFile.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestLockFileEx.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestPostQueuedCompletionStatus.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestReadFile.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestReadFileEx.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestReadFileScatter.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestSetEndOfFile.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestSetFileCompletionNotificationModes.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestSetFileIoOverlappedRange.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestSetFilePointer.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestSetFilePointerEx.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestUnlockFile.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestUnlockFileEx.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestWriteFile.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestWriteFileEx.cpp" />
+    <ClCompile Include="TestUnit\FileIO\TestWriteFileGather.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestCopyFile.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestCopyFileEx.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestCreateFile.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestDeleteFile.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestFindFirstFile.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestFindFirstFileEx.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestFindFirstFileNameW.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestFindFirstStreamW.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestFindNextFile.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestFindNextFileName.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestFindNextStreamW.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetBinaryType.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetCompressedFileSize.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileAttributes.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileAttributesEx.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileInformationByHandle.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileInformationByHandleEx.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileSize.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileSizeEx.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileType.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetFinalPathNameByHandle.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetFullPathName.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetLongPathName.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetShortPathName.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetTempFileName.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestGetTempPath.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestMoveFile.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestMoveFileEx.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestMoveFileWithProgress.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestReplaceFile.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestSearchPath.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestSetFileAttributes.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestSetFileInformationByHandle.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestSetFileTime.cpp" />
+    <ClCompile Include="TestUnit\FileManagement\TestSetFileValidData.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestFindFirstVolume.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestFindFirstVolumeMountPoint.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestFindNextVolume.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestFindNextVolumeMountPoint.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestFindVolumeClose.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestFindVolumeMountPointClose.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetDriveType.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetLogicalDrives.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetLogicalDriveStrings.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetVolumeInformation.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetVolumeInformationByHandleW.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetVolumeNameForVolumeMountPoint.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetVolumePathName.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetVolumePathNamesForVolumeName.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestQueryDosDevice.cpp" />
+    <ClCompile Include="TestUnit\VolumeManagement\TestSetVolumeLabel.cpp" />
+    <ClCompile Include="TestUnit\WindowsNetworking\TestWNetEnumResource.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiCloseHandle.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiCreateFileMapping.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindClose.h" />
+    <ClInclude Include="TestUnit\PTest.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TestUnit\FileIO\TestCreateFileMapping.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="ApiFunctors\AllApi.h" />
+    <ClInclude Include="ApiFunctors\AllApiDirectoryManagement.h" />
+    <ClInclude Include="ApiFunctors\AllApiDiskManagement.h" />
+    <ClInclude Include="ApiFunctors\AllApiFileIO.h" />
+    <ClInclude Include="ApiFunctors\AllApiFileManagement.h" />
+    <ClInclude Include="ApiFunctors\AllApiNetworkManagement.h" />
+    <ClInclude Include="ApiFunctors\AllApiVolumeManagement.h" />
+    <ClInclude Include="ApiFunctors\ApiFunction.h" />
+    <ClInclude Include="ApiFunctors\ApiStatistics.h" />
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiCreateDirectory.h" />
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiCreateDirectoryEx.h" />
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiCreateDirectoryTransacted.h" />
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiFindCloseChangeNotification.h" />
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiFindFirstChangeNotification.h" />
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiFindNextChangeNotification.h" />
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiGetCurrentDirectory.h" />
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiReadDirectoryChangesW.h" />
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiRemoveDirectory.h" />
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiRemoveDirectoryTransacted.h" />
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiSetCurrentDirectory.h" />
+    <ClInclude Include="ApiFunctors\DiskManagement\ApiGetDiskFreeSpace.h" />
+    <ClInclude Include="ApiFunctors\DiskManagement\ApiGetDiskFreeSpaceEx.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiCancelIo.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiCancelIoEx.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiCancelSynchronousIo.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiCreateIoCompletionPort.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiFlushFileBuffers.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiGetQueuedCompletionStatus.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiGetQueuedCompletionStatusEx.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiLockFile.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiLockFileEx.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiPostQueuedCompletionStatus.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiReadFile.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiReadFileEx.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiReadFileScatter.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiSetEndOfFile.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiSetFileCompletionNotificationModes.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiSetFileIoOverlappedRange.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiSetFilePointer.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiSetFilePointerEx.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiUnlockFile.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiUnlockFileEx.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiWriteFile.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiWriteFileEx.h" />
+    <ClInclude Include="ApiFunctors\FileIO\ApiWriteFileGather.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiCopyFile.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiCopyFileEx.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiCreateFile.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiDeleteFile.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindFirstFile.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindFirstFileEx.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindFirstFileNameW.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindFirstStreamW.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindNextFile.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindNextFileName.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindNextStreamW.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetBinaryType.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetCompressedFileSize.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileAttributes.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileAttributesEx.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileInformationByHandle.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileInformationByHandleEx.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileSize.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileSizeEx.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileTime.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileType.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFinalPathNameByHandle.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFullPathName.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetLongPathName.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetShortPathName.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetTempFileName.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetTempPath.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiMoveFile.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiMoveFileEx.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiMoveFileWithProgress.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiReplaceFile.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiSearchPath.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiSetFileAttributes.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiSetFileInformationByHandle.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiSetFileTime.h" />
+    <ClInclude Include="ApiFunctors\FileManagement\ApiSetFileValidData.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiFindFirstVolume.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiFindFirstVolumeMountPoint.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiFindNextVolume.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiFindNextVolumeMountPoint.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiFindVolumeClose.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiFindVolumeMountPointClose.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetDriveType.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetLogicalDrives.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetLogicalDriveStrings.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetVolumeInformation.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetVolumeInformationByHandleW.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetVolumeNameForVolumeMountPoint.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetVolumePathName.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetVolumePathNamesForVolumeName.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiQueryDosDevice.h" />
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiSetVolumeLabel.h" />
+    <ClInclude Include="ApiFunctors\NetworkManagement\ApiWNetCloseEnum.h" />
+    <ClInclude Include="ApiFunctors\NetworkManagement\ApiWNetEnumResource.h" />
+    <ClInclude Include="ApiFunctors\NetworkManagement\ApiWNetOpenEnum.h" />
+    <ClInclude Include="ApiFunctors\WindowsNetworking\ApiWNetCloseEnum.h" />
+    <ClInclude Include="ApiFunctors\WindowsNetworking\ApiWNetEnumResource.h" />
+    <ClInclude Include="ApiFunctors\WindowsNetworking\ApiWNetOpenEnum.h" />
+    <ClInclude Include="TestUnit\AllTest.h" />
+    <ClInclude Include="TestUnit\AllTestDirectoryManagement.h" />
+    <ClInclude Include="TestUnit\AllTestDiskManagement.h" />
+    <ClInclude Include="TestUnit\AllTestFileIO.h" />
+    <ClInclude Include="TestUnit\AllTestFileManagement.h" />
+    <ClInclude Include="TestUnit\AllTestNetworkManagement.h" />
+    <ClInclude Include="TestUnit\AllTestVolumeManagement.h" />
+    <ClInclude Include="TestUnit\AllTestWindowsNetworking.h" />
+    <ClInclude Include="TestUnit\Combinator.h" />
+    <ClInclude Include="TestUnit\File.h" />
+    <ClInclude Include="TestUnit\TestFileName.h" />
+    <ClInclude Include="TestUnit\TestLog.h" />
+    <ClInclude Include="TestUnit\TestUtility.h" />
+    <ClInclude Include="TestUnit\DirectoryManagement\TestCreateDirectoryEx.h" />
+    <ClInclude Include="TestUnit\DirectoryManagement\TestCreateDirectoryTransacted.h" />
+    <ClInclude Include="TestUnit\DirectoryManagement\TestCreateRemoveDirectory.h" />
+    <ClInclude Include="TestUnit\DirectoryManagement\TestFindCloseChangeNotification.h" />
+    <ClInclude Include="TestUnit\DirectoryManagement\TestFindFirstChangeNotification.h" />
+    <ClInclude Include="TestUnit\DirectoryManagement\TestFindNextChangeNotification.h" />
+    <ClInclude Include="TestUnit\DirectoryManagement\TestGetCurrentDirectory.h" />
+    <ClInclude Include="TestUnit\DirectoryManagement\TestMoveDirectory.h" />
+    <ClInclude Include="TestUnit\DirectoryManagement\TestReadDirectoryChangesW.h" />
+    <ClInclude Include="TestUnit\DirectoryManagement\TestRemoveDirectoryTransacted.h" />
+    <ClInclude Include="TestUnit\DirectoryManagement\TestSetCurrentDirectory.h" />
+    <ClInclude Include="TestUnit\DiskManagement\TestGetDiskFreeSpace.h" />
+    <ClInclude Include="TestUnit\DiskManagement\TestGetDiskFreeSpaceEx.h" />
+    <ClInclude Include="TestUnit\FileIO\TestCancelIo.h" />
+    <ClInclude Include="TestUnit\FileIO\TestCancelIoEx.h" />
+    <ClInclude Include="TestUnit\FileIO\TestCancelSynchronousIo.h" />
+    <ClInclude Include="TestUnit\FileIO\TestCreateIoCompletionPort.h" />
+    <ClInclude Include="TestUnit\FileIO\TestFlushFileBuffers.h" />
+    <ClInclude Include="TestUnit\FileIO\TestGetQueuedCompletionStatus.h" />
+    <ClInclude Include="TestUnit\FileIO\TestGetQueuedCompletionStatusEx.h" />
+    <ClInclude Include="TestUnit\FileIO\TestLockFile.h" />
+    <ClInclude Include="TestUnit\FileIO\TestLockFileEx.h" />
+    <ClInclude Include="TestUnit\FileIO\TestPostQueuedCompletionStatus.h" />
+    <ClInclude Include="TestUnit\FileIO\TestReadFile.h" />
+    <ClInclude Include="TestUnit\FileIO\TestReadFileEx.h" />
+    <ClInclude Include="TestUnit\FileIO\TestReadFileScatter.h" />
+    <ClInclude Include="TestUnit\FileIO\TestSetEndOfFile.h" />
+    <ClInclude Include="TestUnit\FileIO\TestSetFileCompletionNotificationModes.h" />
+    <ClInclude Include="TestUnit\FileIO\TestSetFileIoOverlappedRange.h" />
+    <ClInclude Include="TestUnit\FileIO\TestSetFilePointer.h" />
+    <ClInclude Include="TestUnit\FileIO\TestSetFilePointerEx.h" />
+    <ClInclude Include="TestUnit\FileIO\TestUnlockFile.h" />
+    <ClInclude Include="TestUnit\FileIO\TestUnlockFileEx.h" />
+    <ClInclude Include="TestUnit\FileIO\TestWriteFile.h" />
+    <ClInclude Include="TestUnit\FileIO\TestWriteFileEx.h" />
+    <ClInclude Include="TestUnit\FileIO\TestWriteFileGather.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestCopyFile.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestCopyFileEx.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestCreateFile.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestDeleteFile.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestFindFirstFile.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestFindFirstFileEx.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestFindFirstFileNameW.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestFindFirstStreamW.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestFindNextFile.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestFindNextFileName.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestFindNextStreamW.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetBinaryType.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetCompressedFileSize.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileAttributes.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileAttributesEx.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileInformationByHandle.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileInformationByHandleEx.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileSize.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileSizeEx.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileType.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetFinalPathNameByHandle.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetFullPathName.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetLongPathName.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetShortPathName.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetTempFileName.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestGetTempPath.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestMoveFile.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestMoveFileEx.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestMoveFileWithProgress.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestReplaceFile.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestSearchPath.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestSetFileAttributes.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestSetFileInformationByHandle.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestSetFileTime.h" />
+    <ClInclude Include="TestUnit\FileManagement\TestSetFileValidData.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestFindFirstVolume.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestFindFirstVolumeMountPoint.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestFindNextVolume.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestFindNextVolumeMountPoint.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestFindVolumeClose.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestFindVolumeMountPointClose.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetDriveType.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetLogicalDrives.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetLogicalDriveStrings.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetVolumeInformation.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetVolumeInformationByHandleW.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetVolumeNameForVolumeMountPoint.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetVolumePathName.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetVolumePathNamesForVolumeName.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestQueryDosDevice.h" />
+    <ClInclude Include="TestUnit\VolumeManagement\TestSetVolumeLabel.h" />
+    <ClInclude Include="TestUnit\WindowsNetworking\TestWNetEnumResource.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
