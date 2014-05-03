@@ -1,0 +1,972 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="TestUnit\Combinator.cpp">
+      <Filter>TestUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\PTest.cpp">
+      <Filter>TestUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\TestFileName.cpp">
+      <Filter>TestUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\TestLog.cpp">
+      <Filter>TestUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\TestUtility.cpp">
+      <Filter>TestUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DirectoryManagement\TestCreateDirectoryEx.cpp">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DirectoryManagement\TestCreateDirectoryTransacted.cpp">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DirectoryManagement\TestCreateRemoveDirectory.cpp">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DirectoryManagement\TestFindCloseChangeNotification.cpp">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DirectoryManagement\TestFindFirstChangeNotification.cpp">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DirectoryManagement\TestFindNextChangeNotification.cpp">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DirectoryManagement\TestGetCurrentDirectory.cpp">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DirectoryManagement\TestMoveDirectory.cpp">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DirectoryManagement\TestReadDirectoryChangesW.cpp">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DirectoryManagement\TestRemoveDirectoryTransacted.cpp">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DirectoryManagement\TestSetCurrentDirectory.cpp">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestCancelIo.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestCancelIoEx.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestCancelSynchronousIo.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestCreateFileMapping.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestCreateIoCompletionPort.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestFlushFileBuffers.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestGetQueuedCompletionStatus.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestGetQueuedCompletionStatusEx.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestLockFile.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestLockFileEx.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestPostQueuedCompletionStatus.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestReadFile.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestReadFileEx.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestReadFileScatter.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestSetEndOfFile.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestSetFileCompletionNotificationModes.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestSetFileIoOverlappedRange.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestSetFilePointer.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestSetFilePointerEx.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestUnlockFile.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestUnlockFileEx.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestWriteFile.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestWriteFileEx.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileIO\TestWriteFileGather.cpp">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestCopyFile.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestCopyFileEx.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestCreateFile.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestDeleteFile.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestFindFirstFile.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestFindFirstFileEx.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestFindFirstFileNameW.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestFindFirstStreamW.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestFindNextFile.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestFindNextFileName.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestFindNextStreamW.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetBinaryType.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetCompressedFileSize.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileAttributes.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileAttributesEx.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileInformationByHandle.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileInformationByHandleEx.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileSize.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileSizeEx.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetFileType.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetFinalPathNameByHandle.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetFullPathName.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetLongPathName.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetShortPathName.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetTempFileName.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestGetTempPath.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestMoveFile.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestMoveFileEx.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestMoveFileWithProgress.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestReplaceFile.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestSearchPath.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestSetFileAttributes.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestSetFileInformationByHandle.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestSetFileTime.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\FileManagement\TestSetFileValidData.cpp">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DiskManagement\TestGetDiskFreeSpace.cpp">
+      <Filter>TestUnit\DiskManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\DiskManagement\TestGetDiskFreeSpaceEx.cpp">
+      <Filter>TestUnit\DiskManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestFindFirstVolume.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestFindFirstVolumeMountPoint.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestFindNextVolume.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestFindNextVolumeMountPoint.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestFindVolumeClose.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestFindVolumeMountPointClose.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetDriveType.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetLogicalDrives.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetLogicalDriveStrings.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetVolumeInformation.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetVolumeInformationByHandleW.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetVolumeNameForVolumeMountPoint.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetVolumePathName.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestGetVolumePathNamesForVolumeName.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestQueryDosDevice.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\VolumeManagement\TestSetVolumeLabel.cpp">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUnit\WindowsNetworking\TestWNetEnumResource.cpp">
+      <Filter>TestUnit\WindowsNetworking</Filter>
+    </ClCompile>
+    <ClCompile Include="ApiFunctors\ApiFunction.cpp">
+      <Filter>ApiFunctors</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiCreateDirectory.h">
+      <Filter>ApiFunctors\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiCreateDirectoryEx.h">
+      <Filter>ApiFunctors\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiCreateDirectoryTransacted.h">
+      <Filter>ApiFunctors\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindClose.h">
+      <Filter>ApiFunctors\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiFindFirstChangeNotification.h">
+      <Filter>ApiFunctors\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiFindCloseChangeNotification.h">
+      <Filter>ApiFunctors\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiGetCurrentDirectory.h">
+      <Filter>ApiFunctors\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiReadDirectoryChangesW.h">
+      <Filter>ApiFunctors\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiRemoveDirectory.h">
+      <Filter>ApiFunctors\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiRemoveDirectoryTransacted.h">
+      <Filter>ApiFunctors\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiSetCurrentDirectory.h">
+      <Filter>ApiFunctors\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\DiskManagement\ApiGetDiskFreeSpace.h">
+      <Filter>ApiFunctors\DiskManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\DiskManagement\ApiGetDiskFreeSpaceEx.h">
+      <Filter>ApiFunctors\DiskManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiCancelIo.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiCancelIoEx.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiCancelSynchronousIo.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiCreateFileMapping.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiCreateIoCompletionPort.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiFlushFileBuffers.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiGetQueuedCompletionStatus.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiGetQueuedCompletionStatusEx.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiLockFile.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiLockFileEx.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiPostQueuedCompletionStatus.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiReadFile.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiReadFileEx.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiReadFileScatter.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiSetEndOfFile.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiSetFileCompletionNotificationModes.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiSetFileIoOverlappedRange.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiSetFilePointer.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiSetFilePointerEx.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiUnlockFile.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiUnlockFileEx.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiWriteFile.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiWriteFileEx.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileIO\ApiWriteFileGather.h">
+      <Filter>ApiFunctors\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiCloseHandle.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiCopyFile.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiCopyFileEx.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiCreateFile.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiDeleteFile.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindFirstFile.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindFirstFileEx.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindFirstFileNameW.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindFirstStreamW.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\DirectoryManagement\ApiFindNextChangeNotification.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindNextFile.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindNextFileName.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiFindNextStreamW.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetBinaryType.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetCompressedFileSize.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileAttributes.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileAttributesEx.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileInformationByHandle.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileInformationByHandleEx.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileSize.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileSizeEx.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileTime.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFileType.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFinalPathNameByHandle.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetFullPathName.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetLongPathName.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetShortPathName.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetTempFileName.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiGetTempPath.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiMoveFile.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiMoveFileEx.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiMoveFileWithProgress.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiReplaceFile.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiSearchPath.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiSetFileAttributes.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiSetFileInformationByHandle.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiSetFileTime.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\FileManagement\ApiSetFileValidData.h">
+      <Filter>ApiFunctors\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\WindowsNetworking\ApiWNetCloseEnum.h">
+      <Filter>ApiFunctors\WindowsNetworking</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\WindowsNetworking\ApiWNetEnumResource.h">
+      <Filter>ApiFunctors\WindowsNetworking</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\WindowsNetworking\ApiWNetOpenEnum.h">
+      <Filter>ApiFunctors\WindowsNetworking</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiFindNextVolume.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiFindNextVolumeMountPoint.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiSetVolumeLabel.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiFindVolumeClose.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiFindVolumeMountPointClose.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetDriveType.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetLogicalDrives.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetLogicalDriveStrings.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetVolumeInformation.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetVolumeInformationByHandleW.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetVolumeNameForVolumeMountPoint.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetVolumePathName.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiGetVolumePathNamesForVolumeName.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiQueryDosDevice.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiFindFirstVolumeMountPoint.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\VolumeManagement\ApiFindFirstVolume.h">
+      <Filter>ApiFunctors\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\AllTest.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\AllTestDirectoryManagement.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\AllTestDiskManagement.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\AllTestFileIO.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\AllTestFileManagement.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\AllTestNetworkManagement.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\AllTestVolumeManagement.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\AllTestWindowsNetworking.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\Combinator.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\File.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\PTest.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\TestFileName.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\TestLog.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\TestUtility.h">
+      <Filter>TestUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DirectoryManagement\TestCreateDirectoryEx.h">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DirectoryManagement\TestCreateDirectoryTransacted.h">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DirectoryManagement\TestCreateRemoveDirectory.h">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DirectoryManagement\TestFindCloseChangeNotification.h">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DirectoryManagement\TestFindFirstChangeNotification.h">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DirectoryManagement\TestFindNextChangeNotification.h">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DirectoryManagement\TestGetCurrentDirectory.h">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DirectoryManagement\TestMoveDirectory.h">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DirectoryManagement\TestReadDirectoryChangesW.h">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DirectoryManagement\TestRemoveDirectoryTransacted.h">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DirectoryManagement\TestSetCurrentDirectory.h">
+      <Filter>TestUnit\DirectoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestCancelIo.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestCancelIoEx.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestCancelSynchronousIo.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestCreateFileMapping.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestCreateIoCompletionPort.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestFlushFileBuffers.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestGetQueuedCompletionStatus.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestGetQueuedCompletionStatusEx.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestLockFile.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestLockFileEx.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestPostQueuedCompletionStatus.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestReadFile.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestReadFileEx.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestReadFileScatter.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestSetEndOfFile.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestSetFileCompletionNotificationModes.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestSetFileIoOverlappedRange.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestSetFilePointer.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestSetFilePointerEx.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestUnlockFile.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestUnlockFileEx.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestWriteFile.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestWriteFileEx.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileIO\TestWriteFileGather.h">
+      <Filter>TestUnit\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestCopyFile.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestCopyFileEx.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestCreateFile.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestDeleteFile.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestFindFirstFile.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestFindFirstFileEx.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestFindFirstFileNameW.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestFindFirstStreamW.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestFindNextFile.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestFindNextFileName.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestFindNextStreamW.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetBinaryType.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetCompressedFileSize.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileAttributes.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileAttributesEx.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileInformationByHandle.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileInformationByHandleEx.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileSize.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileSizeEx.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetFileType.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetFinalPathNameByHandle.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetFullPathName.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetLongPathName.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetShortPathName.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetTempFileName.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestGetTempPath.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestMoveFile.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestMoveFileEx.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestMoveFileWithProgress.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestReplaceFile.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestSearchPath.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestSetFileAttributes.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestSetFileInformationByHandle.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestSetFileTime.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\FileManagement\TestSetFileValidData.h">
+      <Filter>TestUnit\FileManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DiskManagement\TestGetDiskFreeSpace.h">
+      <Filter>TestUnit\DiskManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\DiskManagement\TestGetDiskFreeSpaceEx.h">
+      <Filter>TestUnit\DiskManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestFindFirstVolume.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestFindFirstVolumeMountPoint.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestFindNextVolume.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestFindNextVolumeMountPoint.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestFindVolumeClose.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestFindVolumeMountPointClose.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetDriveType.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetLogicalDrives.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetLogicalDriveStrings.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetVolumeInformation.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetVolumeInformationByHandleW.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetVolumeNameForVolumeMountPoint.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetVolumePathName.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestGetVolumePathNamesForVolumeName.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestQueryDosDevice.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\VolumeManagement\TestSetVolumeLabel.h">
+      <Filter>TestUnit\VolumeManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUnit\WindowsNetworking\TestWNetEnumResource.h">
+      <Filter>TestUnit\WindowsNetworking</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\AllApi.h">
+      <Filter>ApiFunctors</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\AllApiDirectoryManagement.h">
+      <Filter>ApiFunctors</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\AllApiDiskManagement.h">
+      <Filter>ApiFunctors</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\AllApiFileIO.h">
+      <Filter>ApiFunctors</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\AllApiFileManagement.h">
+      <Filter>ApiFunctors</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\AllApiNetworkManagement.h">
+      <Filter>ApiFunctors</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\AllApiVolumeManagement.h">
+      <Filter>ApiFunctors</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\ApiFunction.h">
+      <Filter>ApiFunctors</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\ApiStatistics.h">
+      <Filter>ApiFunctors</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\NetworkManagement\ApiWNetCloseEnum.h">
+      <Filter>ApiFunctors\NetworkManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\NetworkManagement\ApiWNetEnumResource.h">
+      <Filter>ApiFunctors\NetworkManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="ApiFunctors\NetworkManagement\ApiWNetOpenEnum.h">
+      <Filter>ApiFunctors\NetworkManagement</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ApiFunctors">
+      <UniqueIdentifier>{3d711b12-5c20-4d0d-bbc7-4a77e2cc857c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ApiFunctors\DirectoryManagement">
+      <UniqueIdentifier>{bc913175-91d7-4aab-b5f7-ecdbc135368a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ApiFunctors\DiskManagement">
+      <UniqueIdentifier>{d83aa185-ea99-4e3a-81ca-abd9b980db2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ApiFunctors\FileIO">
+      <UniqueIdentifier>{6bffce01-3710-44fe-a64e-2ca18df64014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ApiFunctors\FileManagement">
+      <UniqueIdentifier>{4511d20e-3990-49a3-8967-f8f0dfe79449}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ApiFunctors\WindowsNetworking">
+      <UniqueIdentifier>{20e206e3-b682-4bae-80b9-0941520b0884}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ApiFunctors\VolumeManagement">
+      <UniqueIdentifier>{45902063-4b68-416c-bdc2-b93986af5b24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TestUnit">
+      <UniqueIdentifier>{208dc0de-d288-4fc5-a4fe-28b0c7666d3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TestUnit\DirectoryManagement">
+      <UniqueIdentifier>{03b1bb70-3efc-4838-966d-d3c05efc1767}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TestUnit\FileIO">
+      <UniqueIdentifier>{9f3d2e01-53bb-4069-ab46-db79b2beca00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TestUnit\FileManagement">
+      <UniqueIdentifier>{7c5795c6-5f7b-4aef-8698-558ca4b42f9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TestUnit\DiskManagement">
+      <UniqueIdentifier>{38d0bff4-211f-4490-9afa-3e8786592851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TestUnit\VolumeManagement">
+      <UniqueIdentifier>{664f77ac-8926-474b-868b-bc6f681282b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TestUnit\WindowsNetworking">
+      <UniqueIdentifier>{e56880f4-67fa-49eb-ac39-903d0c423d1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ApiFunctors\NetworkManagement">
+      <UniqueIdentifier>{5389c207-dd85-445a-8a0a-d8b912a1f17f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
