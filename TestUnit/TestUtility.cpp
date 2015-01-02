@@ -314,13 +314,6 @@ wstring GetCurrentModulePath()
     return wstring(sz);
 }
 
-std::vector<std::wstring> GetRandomFileNames(std::wstring /*basePath*/, size_t /*n*/)
-{
-    std::vector<std::wstring> v;
-
-    return v;
-}
-
 std::wstring FileTimeToString(FILETIME ft)
 {
     SYSTEMTIME st;

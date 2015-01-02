@@ -18,7 +18,6 @@ bool FillDummyData(const std::wstring& path);
 bool AreBothOfFilesDataEqual(const std::wstring& path1, const std::wstring& path2);
 BOOL IsFileExist(const std::wstring& strFullPath);
 std::wstring GetCurrentModulePath();
-std::vector<std::wstring> GetRandomFileNames(std::wstring basePath, size_t n);
 std::wstring FileTimeToString(FILETIME ft);
 std::wstring FileSizeToString(DWORD nFileSizeHigh, DWORD nFileSizeLow);
 std::wstring IntegerToString(INT32 i);
