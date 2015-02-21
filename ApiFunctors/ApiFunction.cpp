@@ -424,10 +424,10 @@ std::wstring GetString_FileTime(__in const FILETIME* pFileTime)
     FILETIME localFileTime;
     SYSTEMTIME st;
     FileTimeToLocalFileTime(pFileTime, &localFileTime);
-    FileTimeToSystemTime(&localFileTime, &st);
+    BOOL fOk = FileTimeToSystemTime(&localFileTime, &st);
+    assert(fOk);
 
     wostringstream oss;
-
     oss << (int)st.wYear << L"." << (int)st.wMonth << L"." << (int)st.wDay << L"." <<
         (int)st.wHour << L":" << (int)st.wMinute << L":" << (int)st.wSecond << L"." << (int)st.wMilliseconds;
 

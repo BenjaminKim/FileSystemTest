@@ -321,7 +321,8 @@ std::wstring FileTimeToString(FILETIME ft)
     TCHAR szLocalTime[255] = { 0 };
 
     FileTimeToLocalFileTime(&ft, &ft);
-    FileTimeToSystemTime(&ft, &st);
+    BOOL fOk = FileTimeToSystemTime(&ft, &st);
+    assert(fOk);
     GetDateFormat(LOCALE_SYSTEM_DEFAULT, DATE_LONGDATE, &st, NULL,
                   szLocalDate, 255);
     GetTimeFormat(LOCALE_SYSTEM_DEFAULT, 0, &st, NULL, szLocalTime, 255);
