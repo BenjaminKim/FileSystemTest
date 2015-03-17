@@ -237,9 +237,6 @@ std::wstring GetWidTestBasePath()
     return std::wstring(buf);
 }
 
-/**
-@brief 두 파일의 데이터가 완전히 일치하는지 체크
-*/
 bool AreBothOfFilesDataEqual(const std::wstring& path1, const std::wstring& path2)
 {
     ifstream file1(path1.c_str(), ios::binary);
@@ -254,10 +251,6 @@ bool AreBothOfFilesDataEqual(const std::wstring& path1, const std::wstring& path
     return equal(char_input(file1), char_input(), char_input(file2));
 }
 
-/**
-@brief 파일을 임의의 데이터로 정해진 크기만큼 채운다.
-사이즈가 정확히 안맞는 문제가 있으나 일단 패스.
-*/
 bool FillDummyData(const std::wstring& path, LONGLONG jSize)
 {
     wofstream out(path.c_str());
@@ -356,7 +349,7 @@ BOOL CreateDirectoryWithAttributes(TestLog& log, const std::wstring& path, DWORD
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"디렉토리 생성이 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Directory creation failed." << endl;
         return FALSE;
     }
 
@@ -364,7 +357,7 @@ BOOL CreateDirectoryWithAttributes(TestLog& log, const std::wstring& path, DWORD
     DWORD dwError = GetLastError();
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"디렉토리에 속성 값을 적용할 수 없습니다. " << GetErrorDefineString(dwError) << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot apply the attributes to the directory. " << GetErrorDefineString(dwError) << endl;
         return FALSE;
     }
 
@@ -374,21 +367,11 @@ BOOL CreateDirectoryWithAttributes(TestLog& log, const std::wstring& path, DWORD
 BOOL IsVistaOrLater()
 {
     OSVERSIONINFO osvi;
-
     osvi.dwOSVersionInfoSize = sizeof OSVERSIONINFO;
-
-    //메이져 5 XP
-    //메이져 6 VISTA
-    if ( ::GetVersionEx( &osvi ) && 
-        osvi.dwPlatformId == VER_PLATFORM_WIN32_NT && 
-        (osvi.dwMajorVersion >= 6 ) )
-    {
-        return TRUE;
-    }
-    else
-    {
-        return FALSE;
-    }
+#pragma warning(push)
+#pragma warning(disable: 4996)
+    return ::GetVersionEx(&osvi) && osvi.dwPlatformId == VER_PLATFORM_WIN32_NT && (osvi.dwMajorVersion >= 6);
+#pragma warning(pop)
 };
 
 std::wstring GetLastErrorStr()
@@ -418,8 +401,6 @@ BOOL TouchManyFiles(TestLog& log, size_t iFileNum, const std::wstring& basePath,
     {
         predirectorypath = GetWidTestBasePath();
 
-        // basePath가 존재하지 않으면 생성하는 코드 작성할 것
-        // TODO
         if(!IsFileExist(basePath.c_str()))
         {
             CreateSubDir(basePath.c_str());

@@ -40,11 +40,11 @@ void Test_CreateDirectoryExAll()
 
 void Test_CreateDirectoryEx(DWORD dwAttribute)
 {
-    DEF_TESTLOG_T("CreateDirectoryEx, 템플릿 디렉토리의 속성조합을 다르게 해서 테스트");
+    DEF_TESTLOG_T("CreateDirectoryEx, Composition of template directory attributes.");
     log.GetStream(TestLog::MT_MESSAGE) << L"Template dir attributes is " << GetString_dwFileAttributes(dwAttribute) << endl;;
 
-    wstring templateDirName = GetTestFileName(_T("TestTemplateDirName"));
-    wstring dirname = GetTestFileName(_T("CreateDirectoryEx"));
+    wstring templateDirName = GetTestFileName(L"TestTemplateDirName");
+    wstring dirname = GetTestFileName(L"CreateDirectoryEx");
 
     BOOL fOk = CreateDirectoryWithAttributes(log, templateDirName, dwAttribute);
 
@@ -64,7 +64,7 @@ void Test_CreateDirectoryEx(DWORD dwAttribute)
     DWORD dwLastError = GetLastError();
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"CreateDirectoryExTest Api가 실패했습니다. " << GetErrorDefineString(dwLastError) << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"CreateDirectoryExTest failed. " << GetErrorDefineString(dwLastError) << endl;
         uRemoveDirectory(templateDirName.c_str());
         uRemoveDirectory(dirname.c_str());
         return;
@@ -75,7 +75,7 @@ void Test_CreateDirectoryEx(DWORD dwAttribute)
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"SetFileAttributes Function was failed." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"SetFileAttributes Function failed." << endl;
         uRemoveDirectory(templateDirName.c_str());
         uRemoveDirectory(dirname.c_str());
         return;
@@ -86,7 +86,7 @@ void Test_CreateDirectoryEx(DWORD dwAttribute)
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"RemoveDirectory Function was failed." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"RemoveDirectory Function failed." << endl;
         return;
     }
 

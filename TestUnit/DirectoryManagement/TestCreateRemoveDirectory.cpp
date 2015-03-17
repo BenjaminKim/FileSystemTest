@@ -16,11 +16,11 @@ void Test_CreateAndRemoveDirecotryAll()
 }
 
 /**
-@brief CreateDirectory와 RemoveDirectory를 모두 테스트.
+@brief Testing CreateDirectory and RemoveDirectory.
 */
 void Test_CreateDirectory_Basic()
 {
-    DEF_TESTLOG_T("Test_CreateDirectory_Basic, 디렉토리 기본 생성, 삭제");
+    DEF_TESTLOG_T("Test_CreateDirectory_Basic, Creating and deleting directories.");
 
     wstring directoryName = GetTestFileName();
 
@@ -28,7 +28,7 @@ void Test_CreateDirectory_Basic()
 
     if(dw == 0)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"CreateDirectory Function was failed." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"CreateDirectory Function failed." << endl;
         return;
     }
 
@@ -36,7 +36,7 @@ void Test_CreateDirectory_Basic()
 
     if(!fSucceed)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"RemoveDirectory Function was failed." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"RemoveDirectory Function failed." << endl;
         return;
     }
 
@@ -45,7 +45,7 @@ void Test_CreateDirectory_Basic()
 
 void Test_RemoveDirecotryHavingSomeFiles()
 {
-    DEF_TESTLOG_T("Test_RemoveDirecotryHavingSomeFiles, 하위에 파일이 존재하는 디렉토리를 삭제");
+    DEF_TESTLOG_T("Test_RemoveDirecotryHavingSomeFiles, Delete a directory which has files as a children.");
 
     wstring directoryName = GetTestFileName(L"Test_RemoveDirecotryHavingSomeFiles");
 
@@ -74,7 +74,7 @@ void Test_RemoveDirecotryHavingSomeFiles()
 
 void Test_RemoveReadOnlyDirecotry()
 {
-    DEF_TESTLOG_T("Test_RemoveReadOnlyDirecotry, 읽기 전용 디렉토리 삭제를 시도");
+    DEF_TESTLOG_T("Test_RemoveReadOnlyDirecotry, Try to delete a readonly directory.");
 
     wstring directoryName = GetTestFileName(L"Test_RemoveReadOnlyDirecotry");
 
