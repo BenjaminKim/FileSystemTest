@@ -5,7 +5,7 @@
 ```
 # -t: Print datetime
 # -d: Print Api duration
-# -s: Calcurate statistics
+# -s: Calculate statistics
 # -f: Full logging
 # And the first argument `C:\test_base_directory` is a base directory you want to test.
 # In this example, it points a NTFS volume. But you can point and test any filesystems you want.(You need to mount it.)
