@@ -3,6 +3,3 @@
 #include "VolumeManagement/ApiGetVolumePathNamesForVolumeName.h"
 
 using namespace std;
-/**
-@see TestFindFirstVolume에서 테스트
-*/

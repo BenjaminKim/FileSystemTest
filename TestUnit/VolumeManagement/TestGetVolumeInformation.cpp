@@ -6,37 +6,37 @@ using namespace std;
 
 void Test_GetVolumeInformationAll()
 {
-    //Test_GetVolumeInformation(_T("A:\\"));
-    Test_GetVolumeInformation(_T("B:\\"));
-    Test_GetVolumeInformation(_T("C:\\"));
-    Test_GetVolumeInformation(_T("D:\\"));
-    Test_GetVolumeInformation(_T("E:\\"));
-    Test_GetVolumeInformation(_T("F:\\"));
-    Test_GetVolumeInformation(_T("G:\\"));
-    Test_GetVolumeInformation(_T("H:\\"));
-    Test_GetVolumeInformation(_T("I:\\"));
-    Test_GetVolumeInformation(_T("J:\\"));
-    Test_GetVolumeInformation(_T("K:\\"));
-    Test_GetVolumeInformation(_T("L:\\"));
-    Test_GetVolumeInformation(_T("M:\\"));
-    Test_GetVolumeInformation(_T("N:\\"));
-    Test_GetVolumeInformation(_T("O:\\"));
-    Test_GetVolumeInformation(_T("P:\\"));
-    Test_GetVolumeInformation(_T("Q:\\"));
-    Test_GetVolumeInformation(_T("R:\\"));
-    Test_GetVolumeInformation(_T("S:\\"));
-    Test_GetVolumeInformation(_T("T:\\"));
-    Test_GetVolumeInformation(_T("U:\\"));
-    Test_GetVolumeInformation(_T("V:\\"));
-    Test_GetVolumeInformation(_T("W:\\"));
-    Test_GetVolumeInformation(_T("X:\\"));
-    Test_GetVolumeInformation(_T("Y:\\"));
-    Test_GetVolumeInformation(_T("Z:\\"));
+    //Test_GetVolumeInformation(L"A:\\");
+    Test_GetVolumeInformation(L"B:\\");
+    Test_GetVolumeInformation(L"C:\\");
+    Test_GetVolumeInformation(L"D:\\");
+    Test_GetVolumeInformation(L"E:\\");
+    Test_GetVolumeInformation(L"F:\\");
+    Test_GetVolumeInformation(L"G:\\");
+    Test_GetVolumeInformation(L"H:\\");
+    Test_GetVolumeInformation(L"I:\\");
+    Test_GetVolumeInformation(L"J:\\");
+    Test_GetVolumeInformation(L"K:\\");
+    Test_GetVolumeInformation(L"L:\\");
+    Test_GetVolumeInformation(L"M:\\");
+    Test_GetVolumeInformation(L"N:\\");
+    Test_GetVolumeInformation(L"O:\\");
+    Test_GetVolumeInformation(L"P:\\");
+    Test_GetVolumeInformation(L"Q:\\");
+    Test_GetVolumeInformation(L"R:\\");
+    Test_GetVolumeInformation(L"S:\\");
+    Test_GetVolumeInformation(L"T:\\");
+    Test_GetVolumeInformation(L"U:\\");
+    Test_GetVolumeInformation(L"V:\\");
+    Test_GetVolumeInformation(L"W:\\");
+    Test_GetVolumeInformation(L"X:\\");
+    Test_GetVolumeInformation(L"Y:\\");
+    Test_GetVolumeInformation(L"Z:\\");
 }
 
 void Test_GetVolumeInformation(const wstring& rootPathName)
 {
-    DEF_TESTLOG_T("Test_GetVolumeInformation, 볼륨 루트들에 대한 케이스를 확인한다.");
+    DEF_TESTLOG_T("Test_GetVolumeInformation");
 
     TCHAR pszVolumeNameBuffer[MAX_PATH] = { 0 };
     DWORD nVolumeNameSize = MAX_PATH;

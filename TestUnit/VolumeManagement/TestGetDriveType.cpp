@@ -6,32 +6,32 @@ using namespace std;
 
 void Test_GetDriveTypeAll()
 {
-    //Test_GetDriveType(_T("A:\\"));
-    Test_GetDriveType(_T("B:\\"));
-    Test_GetDriveType(_T("C:\\"));
-    Test_GetDriveType(_T("D:\\"));
-    Test_GetDriveType(_T("E:\\"));
-    Test_GetDriveType(_T("F:\\"));
-    Test_GetDriveType(_T("G:\\"));
-    Test_GetDriveType(_T("H:\\"));
-    Test_GetDriveType(_T("I:\\"));
-    Test_GetDriveType(_T("J:\\"));
-    Test_GetDriveType(_T("K:\\"));
-    Test_GetDriveType(_T("L:\\"));
-    Test_GetDriveType(_T("M:\\"));
-    Test_GetDriveType(_T("N:\\"));
-    Test_GetDriveType(_T("O:\\"));
-    Test_GetDriveType(_T("P:\\"));
-    Test_GetDriveType(_T("Q:\\"));
-    Test_GetDriveType(_T("R:\\"));
-    Test_GetDriveType(_T("S:\\"));
-    Test_GetDriveType(_T("T:\\"));
-    Test_GetDriveType(_T("U:\\"));
-    Test_GetDriveType(_T("V:\\"));
-    Test_GetDriveType(_T("W:\\"));
-    Test_GetDriveType(_T("X:\\"));
-    Test_GetDriveType(_T("Y:\\"));
-    Test_GetDriveType(_T("Z:\\"));
+    //Test_GetDriveType(L"A:\\");
+    Test_GetDriveType(L"B:\\");
+    Test_GetDriveType(L"C:\\");
+    Test_GetDriveType(L"D:\\");
+    Test_GetDriveType(L"E:\\");
+    Test_GetDriveType(L"F:\\");
+    Test_GetDriveType(L"G:\\");
+    Test_GetDriveType(L"H:\\");
+    Test_GetDriveType(L"I:\\");
+    Test_GetDriveType(L"J:\\");
+    Test_GetDriveType(L"K:\\");
+    Test_GetDriveType(L"L:\\");
+    Test_GetDriveType(L"M:\\");
+    Test_GetDriveType(L"N:\\");
+    Test_GetDriveType(L"O:\\");
+    Test_GetDriveType(L"P:\\");
+    Test_GetDriveType(L"Q:\\");
+    Test_GetDriveType(L"R:\\");
+    Test_GetDriveType(L"S:\\");
+    Test_GetDriveType(L"T:\\");
+    Test_GetDriveType(L"U:\\");
+    Test_GetDriveType(L"V:\\");
+    Test_GetDriveType(L"W:\\");
+    Test_GetDriveType(L"X:\\");
+    Test_GetDriveType(L"Y:\\");
+    Test_GetDriveType(L"Z:\\");
 }
 
 void Test_GetDriveType(const wstring& drive)

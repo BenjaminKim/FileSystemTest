@@ -32,7 +32,7 @@ void Test_GetFinalPathNameByHandle(DWORD dwFlags)
         return;
     }
 
-    std::wstring fileName(_T("FinalPathNameByHandle"));
+    std::wstring fileName(L"FinalPathNameByHandle");
     TouchFile(log, fileName);
     File f(fileName);
     
@@ -43,7 +43,7 @@ void Test_GetFinalPathNameByHandle(DWORD dwFlags)
 
     if(dw == 0 || dw > _countof(sz))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"GetFinalPathNameByHandle Api에서 오류가 발생했습니다(" << GetLastErrorStr() << L")" << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"GetFinalPathNameByHandle Api failed(" << GetLastErrorStr() << L")" << endl;
 
         f.CloseHandle();
         BOOL fOk = uDeleteFile(fileName.c_str());

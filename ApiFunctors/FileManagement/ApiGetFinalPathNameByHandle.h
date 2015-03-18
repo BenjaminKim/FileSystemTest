@@ -1,14 +1,12 @@
 #pragma once
 
-
 DEFINE_API_CLASS_DYN_BEGIN(GetFinalPathNameByHandle, Kernel32.dll)
 
 static std::wstring GetString_dwFlags(DWORD dwFlags)
 {
     CHECK_BIT_BEGIN_HEX(dwFlags)
 
-    // !!!!!
-    // 매크로 수정되어야 함.
+    // TODO: Macro should be modified.(This is old comment. I don't remember why, though)
     CHECK_BIT(FILE_NAME_NORMALIZED)
     CHECK_BIT(FILE_NAME_OPENED)
     CHECK_BIT(VOLUME_NAME_DOS)

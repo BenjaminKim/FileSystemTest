@@ -27,39 +27,9 @@ void Test_GetDiskFreeSpace(const std::wstring& rootPathName)
     log.Ok();
 }
 
-void Test_GetDiskFreeSpace_AllRootPath()
-{
-    //Test_GetDiskFreeSpace(_T("A:\\"));
-    Test_GetDiskFreeSpace(_T("B:\\"));
-    Test_GetDiskFreeSpace(_T("C:\\"));
-    Test_GetDiskFreeSpace(_T("D:\\"));
-    Test_GetDiskFreeSpace(_T("E:\\"));
-    Test_GetDiskFreeSpace(_T("F:\\"));
-    Test_GetDiskFreeSpace(_T("G:\\"));
-    Test_GetDiskFreeSpace(_T("H:\\"));
-    Test_GetDiskFreeSpace(_T("I:\\"));
-    Test_GetDiskFreeSpace(_T("J:\\"));
-    Test_GetDiskFreeSpace(_T("K:\\"));
-    Test_GetDiskFreeSpace(_T("L:\\"));
-    Test_GetDiskFreeSpace(_T("M:\\"));
-    Test_GetDiskFreeSpace(_T("N:\\"));
-    Test_GetDiskFreeSpace(_T("O:\\"));
-    Test_GetDiskFreeSpace(_T("P:\\"));
-    Test_GetDiskFreeSpace(_T("Q:\\"));
-    Test_GetDiskFreeSpace(_T("R:\\"));
-    Test_GetDiskFreeSpace(_T("S:\\"));
-    Test_GetDiskFreeSpace(_T("T:\\"));
-    Test_GetDiskFreeSpace(_T("U:\\"));
-    Test_GetDiskFreeSpace(_T("V:\\"));
-    Test_GetDiskFreeSpace(_T("W:\\"));
-    Test_GetDiskFreeSpace(_T("X:\\"));
-    Test_GetDiskFreeSpace(_T("Y:\\"));
-    Test_GetDiskFreeSpace(_T("Z:\\"));
-}
-
 void Test_WriteFileAndGetDiskFreeSpace()
 {
-    DEF_TESTLOG_T("Test_WriteFileAndGetDiskFreeSpace : Writefile을 시도한 후 용량이 얼마 남았는지 확인.");
+    DEF_TESTLOG_T("Test_WriteFileAndGetDiskFreeSpace : Check disk free space after WriteFile.");
 
     wstring fileName = GetTestFileName();
     BOOL fOk = MakeFile(log, fileName);
@@ -108,7 +78,7 @@ void Test_WriteFileAndGetDiskFreeSpace()
         apiGetFileSizeEx(f2, &li);
     }
 
-    Sleep(5000); // 캐시 제거
+    Sleep(5000); // Remove cache
 
     if(!apiGetDiskFreeSpace(sCurrentDir.c_str(), &dwSectorsPerCluster, &dwBytesPerSector, &dwNumberOfFreeClusters, &dwTotalNumberOfClusters))
     {
@@ -119,7 +89,7 @@ void Test_WriteFileAndGetDiskFreeSpace()
 
     log.GetStream(TestLog::MT_MESSAGE) << L"Diff Free Space : " << jOriginFreeSpace - jAfterFreeSpace << endl;
 
-    File f2(fileName); // 서버로 가는지 확인해야 한다.
+    File f2(fileName);
     LARGE_INTEGER li2;
     apiGetFileSizeEx(f2, &li2);
     f2.CloseHandle();
@@ -143,7 +113,7 @@ void Test_WriteFileAndGetDiskFreeSpace()
 
 void Test_TruncateFileAndGetDiskFreeSpace()
 {
-    DEF_TESTLOG_T("Test_TruncateFileAndGetDiskFreeSpace : Writefile을 시도한 후 용량이 얼마 남았는지 확인.");
+    DEF_TESTLOG_T("Test_TruncateFileAndGetDiskFreeSpace : Check disk free space after truncating a file.");
 
     wstring fileName = GetTestFileName();
     BOOL fOk = MakeFile(log, fileName);
@@ -196,7 +166,7 @@ void Test_TruncateFileAndGetDiskFreeSpace()
         apiGetFileSizeEx(f, &li);
     }
 
-    Sleep(5000); // 캐시 제거
+    Sleep(5000);
 
     if(!apiGetDiskFreeSpace(sCurrentDir.c_str(), &dwSectorsPerCluster, &dwBytesPerSector, &dwNumberOfFreeClusters, &dwTotalNumberOfClusters))
     {
@@ -207,7 +177,7 @@ void Test_TruncateFileAndGetDiskFreeSpace()
 
     log.GetStream(TestLog::MT_MESSAGE) << L"Diff Free Space : " << jOriginFreeSpace - jAfterFreeSpace << endl;
 
-    File f2(fileName); // 서버로 가는지 확인해야 한다.
+    File f2(fileName);
     LARGE_INTEGER li2;
     apiGetFileSizeEx(f2, &li2);
     f2.CloseHandle();

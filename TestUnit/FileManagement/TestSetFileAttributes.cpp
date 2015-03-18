@@ -60,7 +60,7 @@ void Test_SetFileAttributesAll()
 
 void Test_SetFileAttributes(DWORD dwFileAttributes)
 {
-    DEF_TESTLOG_T("SetFileAttributes, 파일에 대해 모든 플래그의 조합을 입력해봅니다.");
+    DEF_TESTLOG_T("SetFileAttributes with all composition for file.");
     std::wstring fileName = GetTestFileName();
 
     if(!TouchFile(log, fileName))
@@ -73,7 +73,7 @@ void Test_SetFileAttributes(DWORD dwFileAttributes)
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"SetFileAttributeApi가 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"SetFileAttributes failed." << endl;
 
         uSetFileAttributes(fileName.c_str(), FILE_ATTRIBUTE_NORMAL);
 
@@ -101,7 +101,7 @@ void Test_SetFileAttributes(DWORD dwFileAttributes)
 
 void Test_SetDirAttributes(DWORD dwFileAttributes)
 {
-    DEF_TESTLOG_T("SetFileAttributes, 디렉토리에 대해 모든 플래그의 조합을 입력해봅니다.");
+    DEF_TESTLOG_T("SetFileAttributes with all composition for directory.");
     std::wstring fileName = GetTestFileName();
 
     BOOL fOk = uCreateDirectory(fileName.c_str(), 0);
@@ -112,7 +112,7 @@ void Test_SetDirAttributes(DWORD dwFileAttributes)
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"SetFileAttributeApi가 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"SetFileAttributes failed." << endl;
 
         uSetFileAttributes(fileName.c_str(), FILE_ATTRIBUTE_DIRECTORY);
 
@@ -120,20 +120,20 @@ void Test_SetDirAttributes(DWORD dwFileAttributes)
 
         if(!fOk)
         {
-            log.GetStream(TestLog::MT_ERROR) << L"디렉토리를 삭제할 수 없습니다." << GetLastErrorStr() << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the directory." << GetLastErrorStr() << endl;
             return;
         }
     }
 
     apiGetFileAttributes(fileName.c_str());
 
-    // 읽기 전용 플래그가 있으면 삭제가 안되므로 다시 기본 속성으로 되돌린다.
+    // Because we can't delete if the file is set by readonly flag, set default attribute again.
     uSetFileAttributes(fileName.c_str(), FILE_ATTRIBUTE_DIRECTORY);
     fOk = uRemoveDirectory(fileName.c_str());
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"디렉토리를 삭제할 수 없습니다." << GetLastErrorStr() << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the directory." << GetLastErrorStr() << endl;
         return;
     }
 

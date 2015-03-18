@@ -5,7 +5,7 @@
 using namespace std;
 
 /**
-@brief 도대체 뭐하는 API인지 알 수가 없다.
+@brief I don't know this api.
 */
 void Test_SearchPath_Basic()
 {

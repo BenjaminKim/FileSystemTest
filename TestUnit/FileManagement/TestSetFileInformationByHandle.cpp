@@ -23,7 +23,7 @@ void Test_SetFileInformationByHandleAll()
 
 static void Test_SetFileInformationByHandle_Disposition_NormalFile()
 {
-    DEF_TESTLOG_T("Test_SetFileInformationByHandle_Disposition_NormalFile 테스트");
+    DEF_TESTLOG_T("Test_SetFileInformationByHandle_Disposition_NormalFile");
 
     std::wstring fileName = GetTestFileName();
     BOOL fOk;
@@ -49,24 +49,23 @@ static void Test_SetFileInformationByHandle_Disposition_NormalFile()
 
         if(fOk)
         {
-            log.GetStream(TestLog::MT_MESSAGE) <<
-                L"파일이 삭제 상태로 마킹됨." << endl;
+            log.GetStream(TestLog::MT_MESSAGE) << L"The file has been marked as a deleted status." << endl;
         }
         else
         {
             log.GetStream(TestLog::MT_MESSAGE) <<
-                L"apiSetFileInformationByHandle가 실패했습니다." << endl;
+                L"apiSetFileInformationByHandle failed." << endl;
             failed = TRUE;
             break;
         }
 
-        // 파일을 열어본다.(파일이 삭제되어 있어야 함)
+        // Trying to open file.(The file should have been deleted.)
         {
             HANDLE h = apiCreateFile(fileName.c_str(),
                 GENERIC_READ, FILE_SHARE_DELETE | FILE_SHARE_READ | FILE_SHARE_WRITE, 0, OPEN_EXISTING, 0, 0);
             if(h != INVALID_HANDLE_VALUE)
             {
-                log.GetStream(TestLog::MT_ERROR) << L"SetFileInformation 오작동." << endl;
+                log.GetStream(TestLog::MT_ERROR) << L"SetFileInformation doesn't work well." << endl;
                 failed = TRUE;
                 CloseHandle(h);
             }
@@ -79,12 +78,12 @@ static void Test_SetFileInformationByHandle_Disposition_NormalFile()
         if(!fOk)
         {
             log.GetStream(TestLog::MT_ERROR) <<
-                L"apiSetFileInformationByHandle가 실패했습니다." << endl;
+                L"apiSetFileInformationByHandle failed." << endl;
             failed = TRUE;
             break;
         }
 
-        // 파일을 또 열어본다.(파일이 삭제되지 않고 정상적으로 있어야 함)
+        // Trying to open file again.(The file must be exist.)
         {
             HANDLE h = apiCreateFile(fileName.c_str(),
                 GENERIC_READ, FILE_SHARE_DELETE | FILE_SHARE_READ | FILE_SHARE_WRITE, 0, OPEN_EXISTING, 0, 0);
@@ -94,25 +93,25 @@ static void Test_SetFileInformationByHandle_Disposition_NormalFile()
             }
             else
             {
-                log.GetStream(TestLog::MT_ERROR) << L"SetFileInformation 오작동." << endl;
+                log.GetStream(TestLog::MT_ERROR) << L"SetFileInformation doesn't work well." << endl;
                 failed = TRUE;
             }
         }
         break;
     }
 
-    // 파일을 열어본다. (파일이 정상적으로 있어야 함)
+    // Trying to open the file.(The file should be normally.)
     {
         HANDLE h = apiCreateFile(fileName.c_str(),
             GENERIC_READ, FILE_SHARE_DELETE | FILE_SHARE_READ | FILE_SHARE_WRITE, 0, OPEN_EXISTING, 0, 0);
         if(h != INVALID_HANDLE_VALUE)
         {
             CloseHandle(h);
-            log.GetStream(TestLog::MT_MESSAGE) << L"파일이 정상적으로 복구되었음." << endl;
+            log.GetStream(TestLog::MT_MESSAGE) << L"The file has been recovered well." << endl;
         }
         else
         {
-            log.GetStream(TestLog::MT_ERROR) << L"SetFileInformation 오작동." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"SetFileInformation doesn't work well." << endl;
             failed = TRUE;
         }
     }
@@ -127,7 +126,7 @@ static void Test_SetFileInformationByHandle_Disposition_NormalFile()
 
 static void Test_SetFileInformationByHandle_Disposition_ReadOnlyFile1()
 {
-    DEF_TESTLOG_T("Test_SetFileInformationByHandle_Disposition_ReadOnlyFile1, 읽기 전용파일에 SetFileInformationByHandle을 호출");
+    DEF_TESTLOG_T("Test_SetFileInformationByHandle_Disposition_ReadOnlyFile1, Calling SetFileInformationByHandle at readonly file.");
 
     std::wstring fileName = GetTestFileName();
     BOOL fOk;
@@ -144,7 +143,7 @@ static void Test_SetFileInformationByHandle_Disposition_ReadOnlyFile1()
 
     if(SetFileAttributes(fileName.c_str(), FILE_ATTRIBUTE_READONLY))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"읽기 전용 파일로 변경" << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Applied readonly attribute." << endl;
     }
     else
     {
@@ -159,13 +158,12 @@ static void Test_SetFileInformationByHandle_Disposition_ReadOnlyFile1()
 
     if(fOk)
     {
-        log.GetStream(TestLog::MT_MESSAGE) <<
-            L"파일이 삭제 상태로 마킹됨." << endl;
+        log.GetStream(TestLog::MT_MESSAGE) << L"The file has been marked as a deleted status." << endl;
     }
     else
     {
         log.GetStream(TestLog::MT_MESSAGE) <<
-            L"apiSetFileInformationByHandle가 실패했습니다." << endl;
+            L"apiSetFileInformationByHandle failed." << endl;
         DeleteFileOrCheck(log, fileName);
         return;
     }
@@ -178,7 +176,7 @@ static void Test_SetFileInformationByHandle_Disposition_ReadOnlyFile1()
 
 static void Test_SetFileInformationByHandle_Disposition_ReadOnlyFile2()
 {
-    DEF_TESTLOG_T("Test_SetFileInformationByHandle_Disposition_ReadOnlyFile2, SetFileInformationByHandle로 Delete하고 핸들을 닫기 전에, 다른 곳에서 읽기 전용파일로 변경");
+    DEF_TESTLOG_T("Test_SetFileInformationByHandle_Disposition_ReadOnlyFile2, Deleting a file by SetFileInformationByHandle and before closing the handle, change it as readonly file from another place.");
 
     std::wstring fileName = GetTestFileName();
     BOOL fOk;
@@ -201,20 +199,19 @@ static void Test_SetFileInformationByHandle_Disposition_ReadOnlyFile2()
 
     if(fOk)
     {
-        log.GetStream(TestLog::MT_MESSAGE) <<
-            L"파일이 삭제 상태로 마킹됨." << endl;
+        log.GetStream(TestLog::MT_MESSAGE) << L"The file has been marked as a deleted status." << endl;
     }
     else
     {
         log.GetStream(TestLog::MT_MESSAGE) <<
-            L"apiSetFileInformationByHandle가 실패했습니다." << endl;
+            L"apiSetFileInformationByHandle failed." << endl;
         DeleteFileOrCheck(log, fileName);
         return;
     }
 
     if(SetFileAttributes(fileName.c_str(), FILE_ATTRIBUTE_READONLY))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"읽기 전용 파일로 변경" << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Applied readonly attribute." << endl;
         log.GetStream(TestLog::MT_ERROR) << L"The function must be failed." << endl;
     }
     else
@@ -252,38 +249,36 @@ void Test_SetFileInformationByHandle_Delete_Twice()
 
     if(fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) <<
-            L"파일이 삭제 상태로 마킹됨." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"The file has been marked as a deleted status." << endl;
     }
     else
     {
         log.GetStream(TestLog::MT_ERROR) <<
-            L"apiSetFileInformationByHandle가 실패했습니다." << GetLastErrorStr() << std::endl;
+            L"apiSetFileInformationByHandle failed." << GetLastErrorStr() << std::endl;
     }
 
-    // 파일을 열어본다.(파일이 삭제되어 있어야 함)
+    // Trying to open file.(The file should have been deleted.)
     {
         HANDLE h = apiCreateFile(fileName.c_str(),
             GENERIC_READ, FILE_SHARE_DELETE | FILE_SHARE_READ | FILE_SHARE_WRITE, 0, OPEN_EXISTING, 0, 0);
         if(h != INVALID_HANDLE_VALUE)
         {
-            log.GetStream(TestLog::MT_ERROR) << L"SetFileInformation 오작동." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"SetFileInformation doesn't work well." << endl;
             CloseHandle(h);
         }
     }
 
-    // 한번 더 삭제.
+    // Delete once again.
     fOk = apiSetFileInformationByHandle(f1, FileDispositionInfo, &dispositionInfo, sizeof(dispositionInfo));
 
     if(fOk)
     {
-        log.GetStream(TestLog::MT_MESSAGE) <<
-            L"파일이 삭제 상태로 마킹됨." << endl;
+        log.GetStream(TestLog::MT_MESSAGE) << L"The file has been marked as a deleted status." << endl;
     }
     else
     {
         log.GetStream(TestLog::MT_MESSAGE) <<
-            L"apiSetFileInformationByHandle가 실패했습니다." << GetLastErrorStr() << std::endl;
+            L"apiSetFileInformationByHandle failed." << GetLastErrorStr() << std::endl;
     }
 
     f1.CloseHandle();
@@ -327,13 +322,12 @@ static void Test_SetFileInformationByHandle_Delete_No_Have_Delete_DesireAccess()
 
     if(fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) <<
-            L"파일이 삭제 상태로 마킹됨." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"The file has been marked as a deleted status." << endl;
     }
     else
     {
         log.GetStream(TestLog::MT_ERROR) <<
-            L"apiSetFileInformationByHandle가 실패했습니다->" << GetLastError() << std::endl;
+            L"apiSetFileInformationByHandle failed->" << GetLastError() << std::endl;
     }
 
     {
@@ -363,12 +357,14 @@ static void Test_SetFileInformationByHandle_Delete_No_Have_Delete_DesireAccess()
     log.Ok();
 }
 
-void Test_SetFileInformationByHandle_FileTime(LARGE_INTEGER CreationTime,
-                                                     LARGE_INTEGER LastAccessTime,
-                                                     LARGE_INTEGER LastWriteTime,
-                                                     LARGE_INTEGER ChangeTime)
+void Test_SetFileInformationByHandle_FileTime(
+    LARGE_INTEGER CreationTime,
+    LARGE_INTEGER LastAccessTime,
+    LARGE_INTEGER LastWriteTime,
+    LARGE_INTEGER ChangeTime
+    )
 {
-    DEF_TESTLOG_T("Test_SetFileInformationByHandle_FileTime 테스트");
+    DEF_TESTLOG_T("Test_SetFileInformationByHandle_FileTime");
 
     std::wstring fileName = GetTestFileName();
     BOOL fOk;
@@ -427,7 +423,7 @@ void Test_SetFileInformationByHandle_FileTime(LARGE_INTEGER CreationTime,
 
 void Test_Writefile_FileTime()
 {
-    DEF_TESTLOG_T("Test_Writefile_FileTime 테스트");
+    DEF_TESTLOG_T("Test_Writefile_FileTime");
 
     std::wstring fileName = GetTestFileName();
     BOOL failed = FALSE;
@@ -439,8 +435,6 @@ void Test_Writefile_FileTime()
     }
 
     Sleep(10000);
-
-    
 
     while(failed == FALSE)
     {
@@ -523,8 +517,7 @@ BOOL RenameFile(HANDLE hFile, HANDLE hRootDirectory, LPCWSTR pRenamePath, BOOLEA
 
     if(result == 0)
     {
-        _tprintf (_T("SetFileInformationByHandle Fail. LastError = %d.\n"),
-            GetLastError());
+        wprintf(L"SetFileInformationByHandle Fail. LastError = %d.\n", GetLastError());
     }
 
     free(pRename);
@@ -534,7 +527,7 @@ BOOL RenameFile(HANDLE hFile, HANDLE hRootDirectory, LPCWSTR pRenamePath, BOOLEA
 
 void Test_DeleteFile_RenamedFile()
 {
-    DEF_TESTLOG_T("Test_DeleteFile_RenamedFile, 다른 핸들로 이름을 변경해버린 파일을 삭제");
+    DEF_TESTLOG_T("Test_DeleteFile_RenamedFile");
     wstring fileName = GetTestFileName();
 
     bool fOk = MakeFile(log, fileName.c_str());
@@ -569,7 +562,7 @@ void Test_DeleteFile_RenamedFile()
         if(!RenameFile(f2, NULL, sNewName.c_str(), TRUE))
         {
             log.GetStream(TestLog::MT_ERROR) <<
-                L"apiSetFileInformationByHandle가 실패했습니다." << GetLastErrorStr() << std::endl;
+                L"apiSetFileInformationByHandle failed." << GetLastErrorStr() << std::endl;
             return;
         }
 
@@ -580,13 +573,12 @@ void Test_DeleteFile_RenamedFile()
 
         if(apiSetFileInformationByHandle(f1, FileDispositionInfo, &dispositionInfo, sizeof(dispositionInfo)))
         {
-            log.GetStream(TestLog::MT_ERROR) <<
-                L"파일이 삭제 상태로 마킹됨." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"The file has been marked as a deleted status." << endl;
         }
         else
         {
             log.GetStream(TestLog::MT_ERROR) <<
-                L"apiSetFileInformationByHandle가 실패했습니다." << GetLastErrorStr() << std::endl;
+                L"apiSetFileInformationByHandle failed." << GetLastErrorStr() << std::endl;
         }
     }
 

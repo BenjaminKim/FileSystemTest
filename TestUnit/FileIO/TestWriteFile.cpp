@@ -9,7 +9,7 @@ using namespace std;
 
 void Test_WriteFileAndSetFileTime()
 {
-    DEF_TESTLOG_T("Test_WriteFileAndSetFileTime, 쓰기 이후 파일시간을 설정");
+    DEF_TESTLOG_T("Test_WriteFileAndSetFileTime");
 
     wstring fileName = GetTestFileName();
     if(!TouchFile(log, fileName))
@@ -58,7 +58,7 @@ void Test_WriteFileAndSetFileTime()
 
 void Test_SetFileTimeAndWriteFile()
 {
-    DEF_TESTLOG_T("Test_SetFileTimeAndWriteFile, 파일시간을 먼저 설정한 후 파일 쓰고 닫기");
+    DEF_TESTLOG_T("Test_SetFileTimeAndWriteFile");
 
     wstring fileName = GetTestFileName();
     if(!TouchFile(log, fileName))

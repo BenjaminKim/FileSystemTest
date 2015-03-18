@@ -11,23 +11,26 @@ public:
         h_ = CreateFile(filepath, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, OPEN_EXISTING);
     }
 
-    File(const std::wstring& filepath,
-        __in     DWORD dwShareMode) : filepath_(filepath)
+    File(
+        __in const std::wstring& filepath,
+        __in DWORD dwShareMode) : filepath_(filepath)
     {
         h_ = CreateFile(filepath, GENERIC_READ, dwShareMode, OPEN_EXISTING);
     }
 
-    File(const std::wstring& filepath,
-        __in     DWORD dwDesiredAccess,
-        __in     DWORD dwShareMode) : filepath_(filepath)
+    File(
+        __in const std::wstring& filepath,
+        __in DWORD dwDesiredAccess,
+        __in DWORD dwShareMode) : filepath_(filepath)
     {
         h_ = CreateFile(filepath, dwDesiredAccess, dwShareMode, OPEN_EXISTING);
     }
 
-    File(const std::wstring& filepath,
-        __in     DWORD dwDesiredAccess,
-        __in     DWORD dwShareMode,
-        __in     DWORD dwCreationDisposition) : filepath_(filepath)
+    File(
+        __in const std::wstring& filepath,
+        __in DWORD dwDesiredAccess,
+        __in DWORD dwShareMode,
+        __in DWORD dwCreationDisposition) : filepath_(filepath)
     {
         h_ = CreateFile(filepath, dwDesiredAccess, dwShareMode, dwCreationDisposition);
     }
@@ -72,10 +75,10 @@ private:
     std::wstring filepath_;
 
     HANDLE CreateFile(
-        __in     const std::wstring& filename,
-        __in     DWORD dwDesiredAccess,
-        __in     DWORD dwShareMode,
-        __in     DWORD dwCreationDisposition
+        __in const std::wstring& filename,
+        __in DWORD dwDesiredAccess,
+        __in DWORD dwShareMode,
+        __in DWORD dwCreationDisposition
         )
     { return uCreateFile(filename.c_str(), dwDesiredAccess, dwShareMode, 0, dwCreationDisposition, 0, 0); }
 };

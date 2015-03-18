@@ -13,7 +13,7 @@ void Test_GetFullPathName()
         File f(fileName, GENERIC_READ, FILE_SHARE_READ, OPEN_ALWAYS);
         
         TCHAR buf[MAX_PATH] = { 0 };
-        TCHAR** lppPart={NULL}; // 이런 변수를 만드는 것은 이상하다.
+        TCHAR** lppPart={NULL};
 
         if(!f.IsValidHandle())
         {

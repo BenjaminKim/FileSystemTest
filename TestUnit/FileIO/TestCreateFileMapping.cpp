@@ -72,7 +72,7 @@ void Test_CreateFileMapping_Basic()
 
     memcpy_s(pbFile, 512*1024, &buf[0], buf.size());
 
-    UnmapViewOfFile(pbFile); //여기서 파일에 데이터가 Flush된다.
+    UnmapViewOfFile(pbFile); // Flush occurs here.
     CloseHandle(hFileMapping);
 
     f.CloseHandle();

@@ -29,7 +29,7 @@ void Test_GetFileSize()
 
     if(dwSizeLow == INVALID_FILE_SIZE)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"GetFileSize API가 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"GetFileSize failed." << endl;
 
         BOOL fOk = uDeleteFile(fileName.c_str());
 

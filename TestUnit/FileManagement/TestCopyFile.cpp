@@ -69,7 +69,7 @@ void Test_CopyFile_NoExistingSrc()
 void Test_CopyFile_SharingViolationSrcShareMode(DWORD dwShareMode)
 {
     DEF_TESTLOG_T("Test_CopyFile_SharingViolationSrc");
-    log.GetStream(TestLog::MT_MESSAGE) << L"원본 파일을 특정 공유 모드와 플래그로 열어놓은 채로 복사 테스트" << endl;
+    log.GetStream(TestLog::MT_MESSAGE) << L"CopyTest with opening origin file by specific share mode and flags." << endl;
     log.GetStream(TestLog::MT_MESSAGE) << L"dwShareMode " << apiCreateFile.GetString_dwShareMode(dwShareMode) << endl;
 
     const wstring pSrcFileName = GetSrcFileName();
@@ -188,7 +188,7 @@ void Test_CopyFile_ExistingDstNoFail()
 void Test_CopyFile_ExistingDstSharingViolationShareMode(DWORD dwShareMode)
 {
     DEF_TESTLOG_T("Test_CopyFile_ExistingDstSharingViolationShareMode");
-    log.GetStream(TestLog::MT_MESSAGE) << L"목적 파일을 특정 공유 모드로 열어놓은 채로 복사 테스트" << endl;
+    log.GetStream(TestLog::MT_MESSAGE) << L"CopyTest with opening destination file by specific share mode and flags." << endl;
     log.GetStream(TestLog::MT_MESSAGE) << L"dwShareMode " << apiCreateFile.GetString_dwShareMode(dwShareMode);
 
     const wstring pSrcFileName = GetSrcFileName();

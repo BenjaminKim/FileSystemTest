@@ -37,7 +37,7 @@ void Test_FindFirstFileEx_All()
 
 void Test_FindFirstFileEx_With_WildCard(FINDEX_INFO_LEVELS fInfoLevelId, FINDEX_SEARCH_OPS fSearchOp, DWORD dwAdditionalFlags)
 {
-    DEF_TESTLOG_T("Test_FindFirstFileEx_With_WildCard, 파일의 첫번째 바이트를 *로 해서 탐색");
+    DEF_TESTLOG_T("Test_FindFirstFileEx_With_WildCard");
 
     wstring fileName = GetTestFileName(L"Test_FindFirstFileEx_With_WildCard");
 
@@ -50,9 +50,8 @@ void Test_FindFirstFileEx_With_WildCard(FINDEX_INFO_LEVELS fInfoLevelId, FINDEX_
     WIN32_FIND_DATA FindFileData;
     HANDLE hFind;
 
-    _tprintf (TEXT("Target file is %s\n"), (L"*" + fileName.substr(1)).c_str());
-    hFind = FindFirstFileEx((L"*" + fileName.substr(1)).c_str(), fInfoLevelId, &FindFileData,
-        fSearchOp, NULL, dwAdditionalFlags);
+    wprintf(L"Target file is %s\n", (L"*" + fileName.substr(1)).c_str());
+    hFind = FindFirstFileEx((L"*" + fileName.substr(1)).c_str(), fInfoLevelId, &FindFileData, fSearchOp, NULL, dwAdditionalFlags);
     if (hFind == INVALID_HANDLE_VALUE) 
     {
         log.GetStream(TestLog::MT_ERROR) << L"FindFirstFileEx failed " << GetLastError() << GetLastErrorStr() << endl;
@@ -61,8 +60,7 @@ void Test_FindFirstFileEx_With_WildCard(FINDEX_INFO_LEVELS fInfoLevelId, FINDEX_
     } 
     else 
     {
-        _tprintf (TEXT("The first file found is %s\n"), 
-            FindFileData.cFileName);
+        wprintf(L"The first file found is %s\n", FindFileData.cFileName);
         FindClose(hFind);
     }
 
@@ -73,7 +71,7 @@ void Test_FindFirstFileEx_With_WildCard(FINDEX_INFO_LEVELS fInfoLevelId, FINDEX_
 
 void Test_FindFirstFileEx_With_Question(FINDEX_INFO_LEVELS fInfoLevelId, FINDEX_SEARCH_OPS fSearchOp, DWORD dwAdditionalFlags)
 {
-    DEF_TESTLOG_T("Test_FindFirstFileEx_With_Question, 파일의 첫번째 바이트를 ?로 해서 탐색");
+    DEF_TESTLOG_T("Test_FindFirstFileEx_With_Question");
 
     wstring fileName = GetTestFileName(L"Test_FindFirstFileEx_With_Question");
 
@@ -86,9 +84,8 @@ void Test_FindFirstFileEx_With_Question(FINDEX_INFO_LEVELS fInfoLevelId, FINDEX_
     WIN32_FIND_DATA FindFileData;
     HANDLE hFind;
 
-    _tprintf (TEXT("Target file is %s\n"), (L"?" + fileName.substr(1)).c_str());
-    hFind = FindFirstFileEx((L"?" + fileName.substr(1)).c_str(), fInfoLevelId, &FindFileData,
-        fSearchOp, NULL, dwAdditionalFlags);
+    wprintf(L"Target file is %s\n", (L"?" + fileName.substr(1)).c_str());
+    hFind = FindFirstFileEx((L"?" + fileName.substr(1)).c_str(), fInfoLevelId, &FindFileData, fSearchOp, NULL, dwAdditionalFlags);
     if (hFind == INVALID_HANDLE_VALUE) 
     {
         log.GetStream(TestLog::MT_ERROR) << L"FindFirstFileEx failed " << GetLastError() << GetLastErrorStr() << endl;
@@ -97,8 +94,7 @@ void Test_FindFirstFileEx_With_Question(FINDEX_INFO_LEVELS fInfoLevelId, FINDEX_
     } 
     else 
     {
-        _tprintf (TEXT("The first file found is %s\n"), 
-            FindFileData.cFileName);
+        wprintf(L"The first file found is %s\n", FindFileData.cFileName);
         FindClose(hFind);
     }
 
@@ -122,9 +118,8 @@ void Test_FindFirstFileEx_With_NoWildCard(FINDEX_INFO_LEVELS fInfoLevelId, FINDE
     WIN32_FIND_DATA FindFileData;
     HANDLE hFind;
 
-    _tprintf (TEXT("Target file is %s\n"), fileName.c_str());
-    hFind = FindFirstFileEx(fileName.c_str(), fInfoLevelId, &FindFileData,
-        fSearchOp, NULL, dwAdditionalFlags);
+    wprintf(L"Target file is %s\n", fileName.c_str());
+    hFind = FindFirstFileEx(fileName.c_str(), fInfoLevelId, &FindFileData, fSearchOp, NULL, dwAdditionalFlags);
     if (hFind == INVALID_HANDLE_VALUE) 
     {
         log.GetStream(TestLog::MT_ERROR) << L"FindFirstFileEx failed " << GetLastError() << GetLastErrorStr() << endl;
@@ -133,8 +128,7 @@ void Test_FindFirstFileEx_With_NoWildCard(FINDEX_INFO_LEVELS fInfoLevelId, FINDE
     } 
     else 
     {
-        _tprintf (TEXT("The first file found is %s\n"), 
-            FindFileData.cFileName);
+        wprintf(L"The first file found is %s\n", FindFileData.cFileName);
         FindClose(hFind);
     }
 

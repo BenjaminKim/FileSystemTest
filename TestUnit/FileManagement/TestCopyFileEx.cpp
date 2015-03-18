@@ -39,20 +39,20 @@ void Test_CopyFileEx_Normal()
 }
 
 /**
-- 총 파일의 절반을 전송하면 파일 전송을 취소시켜 버리는 콜백함수.
-CopyFileEx 호출시 lpData에 pcCancel을 넣어주어야 한다.
+- If data is transfered half, then cancel the transfering.
+When you call CopyFileEx, you should put pbCancel to lpData.
 */
 DWORD WINAPI CopyFileCallBack(
-                              __in     LARGE_INTEGER TotalFileSize,
-                              __in     LARGE_INTEGER TotalBytesTransferred,
-                              __in     LARGE_INTEGER /*StreamSize*/,
-                              __in     LARGE_INTEGER /*StreamBytesTransferred*/,
-                              __in     DWORD /*dwStreamNumber*/,
-                              __in     DWORD /*dwCallbackReason*/,
-                              __in     HANDLE /*hSourceFile*/,
-                              __in     HANDLE /*hDestinationFile*/,
-                              __in_opt LPVOID lpData
-                              )
+    __in     LARGE_INTEGER TotalFileSize,
+    __in     LARGE_INTEGER TotalBytesTransferred,
+    __in     LARGE_INTEGER /*StreamSize*/,
+    __in     LARGE_INTEGER /*StreamBytesTransferred*/,
+    __in     DWORD /*dwStreamNumber*/,
+    __in     DWORD /*dwCallbackReason*/,
+    __in     HANDLE /*hSourceFile*/,
+    __in     HANDLE /*hDestinationFile*/,
+    __in_opt LPVOID lpData
+    )
 {
     INT64 jTotalFileSize = TotalFileSize.HighPart;
     jTotalFileSize <<= 32;
@@ -75,7 +75,7 @@ DWORD WINAPI CopyFileCallBack(
 }
 
 /**
-- 파일을 복사 중 중간에 취소
+Canceling test copying file.
 */
 void Test_CopyFileEx_Cancle()
 {
@@ -141,8 +141,6 @@ void Test_CopyFileEx_NoExistingSrc()
 void Test_CopyFileEx_SharingViolationSrcShareMode(DWORD dwShareMode)
 {
     DEF_TESTLOG_T("Test_CopyFileEx_SharingViolationSrcShareMode");
-
-    log.GetStream(TestLog::MT_MESSAGE) << L"원본 파일을 특정 공유 모드로 열어놓은 채로 복사 테스트" << endl;
     log.GetStream(TestLog::MT_MESSAGE) << L"dwShareMode " << apiCreateFile.GetString_dwShareMode(dwShareMode);
 
     const wstring pSrcFileName = GetSrcFileName();
@@ -261,8 +259,6 @@ void Test_CopyFileEx_ExistingDstNoFail()
 void Test_CopyFileEx_ExistingDstSharingViolationShareMode(DWORD dwShareMode)
 {
     DEF_TESTLOG_T("Test_CopyFileEx_ExistingDstSharingViolationShareMode");
-
-    log.GetStream(TestLog::MT_MESSAGE) << L"목적 파일을 특정 공유 모드로 열어놓은 채로 복사 테스트" << endl;
     log.GetStream(TestLog::MT_MESSAGE) << L"dwShareMode " << apiCreateFile.GetString_dwShareMode(dwShareMode);
 
     const wstring pSrcFileName = GetSrcFileName();

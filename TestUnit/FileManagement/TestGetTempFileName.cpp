@@ -7,7 +7,7 @@ using namespace std;
 
 void Test_GetTempFileName()
 {
-    DEF_TESTLOG_T("GetTempFileName, 현재 디렉토리에 대한 임시 파일을 생성해본다. differ에서 다르게 보일 수 있다.");
+    DEF_TESTLOG_T("GetTempFileName, Trying to create temporary file for current directory. This might ruin view of diff tool.");
 
     TCHAR t[MAX_PATH];
     UINT uSucceed = apiGetTempFileName(GetWidTestBasePath().c_str(), L"PRE", 0, t);

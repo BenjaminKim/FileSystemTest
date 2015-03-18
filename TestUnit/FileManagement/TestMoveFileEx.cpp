@@ -8,7 +8,7 @@ using namespace std;
 
 void Test_MoveFileEx_Basic(DWORD dwFlags)
 {
-    DEF_TESTLOG_T("Test_MoveFileEx_Basic, 여러 dwFlags를 넣어본다.");
+    DEF_TESTLOG_T("Test_MoveFileEx_Basic");
 
     const wstring pSrcFileName = GetSrcFileName();
     const wstring pDstFileName = GetDstFileName();
@@ -41,7 +41,7 @@ void Test_MoveFileEx_Basic(DWORD dwFlags)
 
 void Test_MoveFileEx_NoExistingSrc(DWORD dwFlags)
 {
-    DEF_TESTLOG_T("Test_MoveFileEx_NoExistingSrc, 존재하지 않는 원본파일에 대해 적용. 여러 dwFlags를 넣어본다.");
+    DEF_TESTLOG_T("Test_MoveFileEx_NoExistingSrc");
     log.GetStream(TestLog::MT_MESSAGE) << L"dwFlags " << apiMoveFileEx.GetString_dwFlags(dwFlags) << endl;;
 
     const wstring pSrcFileName = GetSrcFileName();
@@ -51,7 +51,7 @@ void Test_MoveFileEx_NoExistingSrc(DWORD dwFlags)
     {
         if(!uDeleteFile(pSrcFileName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"존재하는 Cannot delete the file." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
             return;
         }
     }
@@ -78,7 +78,7 @@ void Test_MoveFileEx_NoExistingSrc(DWORD dwFlags)
 
 void Test_MoveFileEx_SharingViolationSrcShareMode(DWORD dwShareMode, DWORD dwFlags)
 {
-    DEF_TESTLOG_T("Test_MoveFileEx_SharingViolationSrc, 원본 파일의 공유권한을 달리해가면서 테스트");
+    DEF_TESTLOG_T("Test_MoveFileEx_SharingViolationSrc");
     log.GetStream(TestLog::MT_MESSAGE) << L"dwShareMode " << apiCreateFile.GetString_dwShareMode(dwShareMode) << endl;
     log.GetStream(TestLog::MT_MESSAGE) << L"dwFlags " << apiMoveFileEx.GetString_dwFlags(dwFlags) << endl;
 
@@ -135,7 +135,7 @@ void Test_MoveFileEx_SharingViolationSrc(DWORD dwFlags)
 
 void Test_MoveFileEx_ExistingDst(DWORD dwFlags)
 {
-    DEF_TESTLOG_T("Test_MoveFileEx_ExistingDst, 이미 존재하는 목적지파일에 대해 적용. 여러 dwFlags를 넣어본다.");
+    DEF_TESTLOG_T("Test_MoveFileEx_ExistingDst_With_Flags_Composition");
     log.GetStream(TestLog::MT_MESSAGE) << L"dwFlags " << apiMoveFileEx.GetString_dwFlags(dwFlags) << endl;
 
     const wstring pSrcFileName = GetSrcFileName();
@@ -175,8 +175,8 @@ void Test_MoveFileEx_ExistingDst(DWORD dwFlags)
 
 void Test_MoveFileEx_ExistingDstSharingViolationShareMode(DWORD dwShareMode, DWORD dwFlags)
 {
-    DEF_TESTLOG_T("Test_MoveFileEx_ExistingDstSharingViolationShareMode, 목적지 파일의 공유 권한에 대한 테스트");
-    log.GetStream(TestLog::MT_MESSAGE) << L"목적지 파일을 특정 공유 모드와 플래그로 열어놓은 채로 원본파일을 목적파일로 이동 테스트" << endl;
+    DEF_TESTLOG_T("Test_MoveFileEx_ExistingDstSharingViolationShareMode");
+    log.GetStream(TestLog::MT_MESSAGE) << L"Testing MoveFile with opening destination file by specific share mode and flags." << endl;
     log.GetStream(TestLog::MT_MESSAGE) << L"dwShareMode " << apiCreateFile.GetString_dwShareMode(dwShareMode) << endl;
     log.GetStream(TestLog::MT_MESSAGE) << L"dwFlags " << apiMoveFileEx.GetString_dwFlags(dwFlags) << endl;
 

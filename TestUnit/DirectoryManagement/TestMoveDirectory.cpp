@@ -53,7 +53,7 @@ void Test_MoveDirectory_Normal()
 
 void Test_MoveDirectory_NoExistingSrc()
 {
-    DEF_TESTLOG_T("Test_MoveDirectoru_NoExistingSrc, 존재하지 않는 디렉토리를 이동 시도");
+    DEF_TESTLOG_T("Test_MoveDirectoru_NoExistingSrc, Trying to move a 'not existing directory path'.");
 
     const wstring pSrcFileName = GetSrcFileName();
     const wstring pDstFileName = GetDstFileName();
@@ -62,7 +62,7 @@ void Test_MoveDirectory_NoExistingSrc()
     {
         if(!uRemoveDirectory(pSrcFileName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"존재하는 디렉토리를 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot remove directory." << endl;
             return;
         }
     }
@@ -76,11 +76,11 @@ void Test_MoveDirectory_NoExistingSrc()
 
     if(!uRemoveDirectory(pSrcFileName.c_str()))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 디렉토리를 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete a directory created." << endl;
     }
     if(!uRemoveDirectory(pDstFileName.c_str()))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 디렉토리를 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete a directory created." << endl;
         return;
     }
 
@@ -89,7 +89,7 @@ void Test_MoveDirectory_NoExistingSrc()
 
 void Test_MoveDirectory_ExistingDst()
 {
-    DEF_TESTLOG_T("Test_MoveDirectory_ExistingDst, 존재하는 목적 디렉토리가 있을 경우");
+    DEF_TESTLOG_T("Test_MoveDirectory_ExistingDst, a case there is already target directory.");
 
     const wstring pSrcFileName = GetSrcFileName();
     const wstring pDstFileName = GetDstFileName();
@@ -115,11 +115,11 @@ void Test_MoveDirectory_ExistingDst()
 
     if(!uRemoveDirectory(pSrcFileName.c_str()))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 디렉토리를 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete a directory created." << endl;
     }
     if(!uRemoveDirectory(pDstFileName.c_str()))
     {
-        log.GetStream(TestLog::MT_ERROR) << L"만들어진 디렉토리를 삭제할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot delete a directory created." << endl;
         return;
     }
 
@@ -128,7 +128,7 @@ void Test_MoveDirectory_ExistingDst()
 
 void Test_MoveDirirectory_WithOpenedSubFiles()
 {
-    DEF_TESTLOG_T("Test_MoveDirectory_WithOpenedSubFiles, 하위에 파일을 생성해서 열어놓은채 디렉토리를 이동");
+    DEF_TESTLOG_T("Test_MoveDirectory_WithOpeningSubFiles");
 
     wstring dirName = GetTestFileName(L"Test_MoveDirectory_WithOpenedSubFiles");
 
@@ -144,7 +144,7 @@ void Test_MoveDirirectory_WithOpenedSubFiles()
     File f1(dirName + L"\\" + fileName, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, CREATE_ALWAYS);
     if(!f1.IsValidHandle())
     {
-        log.GetStream(TestLog::MT_ERROR) << L"파일을 열 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot open the file." << endl;
         return;
     }
 
@@ -154,7 +154,7 @@ void Test_MoveDirirectory_WithOpenedSubFiles()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"디렉토리 이름을 변경할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot rename the directory." << endl;
         if(!uDeleteFile((dirName + L"\\" + fileName).c_str()))
         {
             log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
@@ -162,7 +162,7 @@ void Test_MoveDirirectory_WithOpenedSubFiles()
 
         if(!uRemoveDirectory(dirName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"디렉토리를 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the directory." << endl;
         }
     }
     else
@@ -177,7 +177,7 @@ void Test_MoveDirirectory_WithOpenedSubFiles()
 
         if(!uRemoveDirectory((L"MOVED_" + dirName).c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"디렉토리를 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the directory." << endl;
         }
     }
 
@@ -187,7 +187,7 @@ void Test_MoveDirirectory_WithOpenedSubFiles()
 
 void Test_MoveDirectory_WithSubFiles()
 {
-    DEF_TESTLOG_T("Test_MoveDir_AsOpendSubFiles, 하위 파일들을(열려있지 않은) 가지고 있는 디렉토리를 이동");
+    DEF_TESTLOG_T("Test_MoveDir_AsOpendSubFiles, Move a directory which has children files(but not opended).");
 
     wstring dirName = GetTestFileName(L"Test_MoveDirectory_WithSubFiles");
 
@@ -216,7 +216,7 @@ void Test_MoveDirectory_WithSubFiles()
     fOk = apiMoveFile(dirName.c_str(), (L"MOVED_" + dirName).c_str());
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"디렉토리 이름을 변경할 수 없습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Cannot rename the directory." << endl;
 
         if(!uDeleteFile((dirName + L"\\" + fileName1).c_str()))
         {
@@ -229,7 +229,7 @@ void Test_MoveDirectory_WithSubFiles()
 
         if(!uRemoveDirectory(dirName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"디렉토리를 삭제할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the directory." << endl;
         }
     }
     else

@@ -7,7 +7,7 @@ using namespace std;
 
 void Test_GetFileType()
 {
-    DEF_TESTLOG_T("GetFileType, 파일 타입을 구한다.");
+    DEF_TESTLOG_T("GetFileType");
     std::wstring fileName = GetTestFileName(L"GetFileType");
 
     File f(fileName, GENERIC_READ, FILE_SHARE_READ, OPEN_ALWAYS);

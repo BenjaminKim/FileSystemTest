@@ -8,13 +8,9 @@ void Test_ReplaceFile_All()
     Test_ReplaceFile_Basic();
 }
 
-/**
-@brief 특정 파일(ToBeReplacedFile)을 어떤 한 파일(SourceFile)로 바꿔버린다.
-ToBeReplacedFile이 바꿔치기 전의 데이터를 Backup 파일로 보존할 수 있다.
-*/
 void Test_ReplaceFile_Basic()
 {
-    DEF_TESTLOG_T("Test_ReplaceFile_Basic, Replace파일의 기본 테스트. 백업 포함.");
+    DEF_TESTLOG_T("Test_ReplaceFile_Basic, Basic ReplaceFile test including backup.");
 
     wstring toBeReplaced = GetTestFileName(L"ReplaceFile_toBeReplaced");
     wstring ReplaceSource = GetTestFileName(L"ReplaceFile_Source");
@@ -36,7 +32,7 @@ void Test_ReplaceFile_Basic()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"Replace 파일 함수가 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"ReplaceFile failed." << endl;
     }
 
     uDeleteFile(toBeReplaced.c_str());
@@ -48,7 +44,7 @@ void Test_ReplaceFile_Basic()
 
 void Test_ReplaceFile_NoFileToBeReplaced()
 {
-    DEF_TESTLOG_T("Test_ReplaceFile_NoFileToBeReplaced, Replace할 파일을 생성하지 않은채로 테스트");
+    DEF_TESTLOG_T("Test_ReplaceFile_But_There_is_No_File_To_Be_Replaced");
 
     wstring toBeReplaced = GetTestFileName(L"ReplaceFile_toBeReplaced");
     wstring ReplaceSource = GetTestFileName(L"ReplaceFile_Source");
@@ -62,12 +58,12 @@ void Test_ReplaceFile_NoFileToBeReplaced()
 
     uDeleteFile(toBeReplaced.c_str());
 
-    //toBeReplaced은 존재하지 않는다.
+    //toBeReplaced doesn't exist.
     BOOL fOk = apiReplaceFile(toBeReplaced.c_str(), ReplaceSource.c_str(), backupFileName.c_str(), REPLACEFILE_WRITE_THROUGH, 0, 0);
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"Replace 파일 함수가 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"ReplaceFile failed." << endl;
     }
 
     uDeleteFile(toBeReplaced.c_str());

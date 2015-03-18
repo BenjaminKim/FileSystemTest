@@ -13,15 +13,9 @@ void Test_ReadFileAll()
 #define LODWORD(l)           ((DWORD)(((UINT64)(l)) & 0xffffffff))
 #define HIDWORD(l)           ((DWORD)((((UINT64)(l)) >> 32) & 0xffffffff))
 
-/**
- - NTFS에서는 파일 사이즈를 미리 확장시켜두지 않으면 비동기함수를 쓰더라도 동기적으로 동작하게 된다.
-    다음 함수들을 사용해서 사이즈를 크게 잡아두고 비동기 함수를 사용해야 한다.
- SetFilePointerEx(h, liFileSize, NULL, FILE_BEGIN);
- SetEndOfFile(h);
-*/
 void Test_ReadFileOverlapped()
 {
-    DEF_TESTLOG_T("Test_ReadFileOverlapped, 기본 적인 파일 읽기 쓰기를 테스트(비동기 IO)");
+    DEF_TESTLOG_T("Test_ReadFileOverlapped, Basic file async I/O");
 
     HANDLE hFile = CreateFile(L"D:\\ReadFileTest1", GENERIC_READ, 0, 0, OPEN_EXISTING, FILE_FLAG_OVERLAPPED /*| FILE_FLAG_NO_BUFFERING*/, 0);
 
@@ -38,7 +32,7 @@ void Test_ReadFileOverlapped()
 
         DWORD nBytesRead = 0;
         
-        log.GetStream(TestLog::MT_MESSAGE) << Timer::GetCurrentDateTime() << L"ReadFile 직전." << endl;
+        log.GetStream(TestLog::MT_MESSAGE) << Timer::GetCurrentDateTime() << L"ReadFile before." << endl;
         BOOL bResult = ReadFile(hFile, readbuffer, bufsize, 0, &gOverLapped);
         log.GetStream(TestLog::MT_MESSAGE) << Timer::GetCurrentDateTime() << L"ReadFile returned." << endl;
         
@@ -68,7 +62,7 @@ void Test_ReadFileOverlapped()
                     // do something else for a while 
                         log.GetStream(TestLog::MT_MESSAGE) << Timer::GetCurrentDateTime() << L"before wait " << endl;
                         WaitForSingleObject( hFile, INFINITE );
-                        log.GetStream(TestLog::MT_MESSAGE) << Timer::GetCurrentDateTime() << L"waitfor singleobject returned " << endl;
+                        log.GetStream(TestLog::MT_MESSAGE) << Timer::GetCurrentDateTime() << L"WaitForSingleObject returned " << endl;
 
                         // check on the results of the asynchronous read 
                         bResult = GetOverlappedResult(hFile, &gOverLapped, 
@@ -112,7 +106,7 @@ END:
 
 void Test_WriteFileOverlapped()
 {
-    DEF_TESTLOG_T("Test_WriteFileOverlapped, 기본 적인 파일 쓰기를 테스트(비동기 IO)");
+    DEF_TESTLOG_T("Test_WriteFileOverlapped, Basic Async Writing Test");
 
     HANDLE hFile = CreateFile(L"D:\\WriteFileTest", GENERIC_WRITE, 0, 0, CREATE_ALWAYS, FILE_FLAG_OVERLAPPED /*| FILE_FLAG_NO_BUFFERING*/, 0);
 
@@ -135,7 +129,7 @@ void Test_WriteFileOverlapped()
         {
             goto END;
         }
-        log.GetStream(TestLog::MT_MESSAGE) << Timer::GetCurrentDateTime() << L"ReadFile 직전." << endl;
+        log.GetStream(TestLog::MT_MESSAGE) << Timer::GetCurrentDateTime() << L"ReadFile before." << endl;
         BOOL bResult = WriteFile(hFile, writebuffer, bufsize, 0, &gOverLapped);
         log.GetStream(TestLog::MT_MESSAGE) << Timer::GetCurrentDateTime() << L"ReadFile returned." << endl;
 
@@ -208,9 +202,9 @@ END:
 
 void Test_ReadWriteFileNormal()
 {
-    DEF_TESTLOG_T("ReadWriteFileNormal, 기본 적인 파일 읽기 쓰기를 테스트");
+    DEF_TESTLOG_T("ReadWriteFileNormal");
 
-    wstring fileName(_T("ReadWriteFileNormal.txt"));
+    wstring fileName(L"ReadWriteFileNormal.txt");
     if(!TouchFile(log, fileName))
     {
         log.GetStream(TestLog::MT_ERROR) << L"Failed to create a file." << endl;
@@ -256,7 +250,7 @@ void Test_ReadWriteFileNormal()
 
 void ReadWriteTest()
 {
-    /*DEF_TESTLOG_T("ReadWriteTest, read write를 마구 한 후 결과가 정상인지 확인");
+    /*DEF_TESTLOG_T("ReadWriteTest");
 
     std::wstring fileName = GetTestFileName(L"ReadWriteTest");
 

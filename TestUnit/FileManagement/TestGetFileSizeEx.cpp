@@ -30,7 +30,7 @@ void Test_GetFileSizeEx()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"GetFileSizeEx API가 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"GetFileSizeEx failed." << endl;
         fOk = uDeleteFile(fileName.c_str());
 
         if(!fOk)
@@ -85,7 +85,7 @@ void Test_WriteAndGetFileSize()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"GetFileSizeEx API가 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"GetFileSizeEx API failed." << endl;
         fOk = uDeleteFile(fileName.c_str());
 
         if(!fOk)
@@ -109,7 +109,7 @@ void Test_WriteAndGetFileSize()
 
 void Test_WriteAndGetFileSize2()
 {
-    DEF_TESTLOG_T("Test_WriteAndGetFileSize, 파일 핸들을 하나 더 열어둔채 writefile 후 getfilesize");
+    DEF_TESTLOG_T("Test_WriteAndGetFileSize, Writing and check file size with additional file handle.");
 
     wstring fileName = GetTestFileName();
     if(!MakeFile(log, fileName.c_str()))
@@ -118,8 +118,8 @@ void Test_WriteAndGetFileSize2()
         return;
     }
 
-    File f(fileName, GENERIC_READ|GENERIC_WRITE, FILE_SHARE_WRITE|FILE_SHARE_READ|FILE_SHARE_DELETE, OPEN_EXISTING); // 첫번째 오픈
-    File f2(fileName, GENERIC_WRITE, FILE_SHARE_WRITE|FILE_SHARE_READ|FILE_SHARE_DELETE, OPEN_EXISTING); // 두번째 오픈
+    File f(fileName, GENERIC_READ|GENERIC_WRITE, FILE_SHARE_WRITE|FILE_SHARE_READ|FILE_SHARE_DELETE, OPEN_EXISTING); // first open
+    File f2(fileName, GENERIC_WRITE, FILE_SHARE_WRITE|FILE_SHARE_READ|FILE_SHARE_DELETE, OPEN_EXISTING); // second open.
     BYTE buf[4096] = { 'A', };
     DWORD BytesWritten;
     if(!apiWriteFile(f2, buf, sizeof(buf), &BytesWritten, 0))
@@ -141,7 +141,7 @@ void Test_WriteAndGetFileSize2()
 
     if(!fOk)
     {
-        log.GetStream(TestLog::MT_ERROR) << L"GetFileSizeEx API가 실패했습니다." << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"GetFileSizeEx API failed." << endl;
         fOk = uDeleteFile(fileName.c_str());
 
         if(!fOk)

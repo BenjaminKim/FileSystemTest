@@ -34,11 +34,13 @@ void Test_SetFileTimeAll()
     Test_SetFileTime(&ft300,            &ft500,             &ft1000);    
 }
 
-void Test_SetFileTime(const FILETIME* lpCreationTime,
-                      const FILETIME* lpLastAccessTime,
-                      const FILETIME* lpLastWriteTime)
+void Test_SetFileTime(
+    const FILETIME* lpCreationTime,
+    const FILETIME* lpLastAccessTime,
+    const FILETIME* lpLastWriteTime
+    )
 {
-    DEF_TESTLOG_T("Test_SetFileTime, 파일에 대해 모든 플래그의 조합을 입력해봅니다.");
+    DEF_TESTLOG_T("Test_SetFileTime");
     std::wstring fileName = GetTestFileName();
 
     if(!TouchFile(log, fileName))
@@ -59,12 +61,12 @@ void Test_SetFileTime(const FILETIME* lpCreationTime,
         FILETIME a, b, c;
         if(!apiGetFileTime(f, &a, &b, &c))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"Api가 실패했습니다." << GetLastErrorStr() << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Api failed." << GetLastErrorStr() << endl;
         }
     }
     else
     {
-        log.GetStream(TestLog::MT_ERROR) << L"Api가 실패했습니다." << GetLastErrorStr() << endl;
+        log.GetStream(TestLog::MT_ERROR) << L"Api failed." << GetLastErrorStr() << endl;
     }
 
     f.CloseHandle();

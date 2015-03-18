@@ -132,7 +132,7 @@ void Test_CreateFile_ExistingFileAccessAllDisposition(DWORD dwDesiredAccess)
 }
 
 /**
-@brief 기존 파일이 있을 때, CreateFile을 호출하는 경우
+@brief Cases calling CreateFile when the file already exist.
 - GENERIC_READ
 - GENERIC_WRITE
 - GENERIC_EXECUTE
@@ -162,7 +162,7 @@ void Test_CreateFile_ExistingFileAccessDisposition()
 #pragma chMSG(I expected to get DELETE_PENDING but I cant. Why)
 void Test_CreateFile_OpenDeletePendingFile()
 {
-    DEF_TESTLOG_T("Test_CreateFile_OpenDeletePendingFile, Delete pending된 상태의 파일을 다른 곳에서 열기 시도");
+    DEF_TESTLOG_T("Test_CreateFile_OpenDeletePendingFile, Trying to open file which has status DeletePending");
 
     std::wstring fileName = GetTestFileName(L"Test_CreateFile_OpenDeletePendingFile");
 

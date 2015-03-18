@@ -6,7 +6,7 @@ using namespace std;
 
 void Test_GetVolumePathName()
 {
-    DEF_TESTLOG_T("Test_GetVolumePathName, 현재 기본 디렉토리와 C,D,E,F,X,Y,Z 드라이브 대해 볼륨 패스를 얻어본다.");
+    DEF_TESTLOG_T("Test_GetVolumePathName");
 
     WCHAR volumeName[MAX_PATH];
     apiGetVolumePathName(GetWidTestBasePath().c_str(), volumeName, _countof(volumeName));

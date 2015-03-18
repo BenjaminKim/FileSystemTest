@@ -13,7 +13,7 @@ void Test_SetEndOfFileAndGetFileSize(const LONGLONG& jQuadPart, DWORD dwMoveMeth
 
 void Test_SetEndOfFile(const LONGLONG& jQuadPart, DWORD dwMoveMethod)
 {
-    DEF_TESTLOG_T("Test_SetEndOfFile : 파일크기를 확장 ");
+    DEF_TESTLOG_T("Test_SetEndOfFile");
 
     wstring fileName = GetTestFileName();
     BOOL fOk = MakeFile(log, fileName);
@@ -69,7 +69,7 @@ void Test_SetEndOfFile_All()
 
 void Test_SetEndOfFileAndGetFileSize(const LONGLONG& jQuadPart, DWORD dwMoveMethod)
 {
-    DEF_TESTLOG_T("Test_SetEndOfFileAndGetFileSize : 파일크기를 확장 ");
+    DEF_TESTLOG_T("Test_SetEndOfFileAndGetFileSize");
 
     wstring fileName = GetTestFileName();
     BOOL fOk = MakeFile(log, fileName);
@@ -101,9 +101,9 @@ void Test_SetEndOfFileAndGetFileSize(const LONGLONG& jQuadPart, DWORD dwMoveMeth
         apiGetFileSizeEx(f, &li);
     }
 
-    Sleep(5000); // 캐시 제거
+    Sleep(5000);
 
-    File f2(fileName); // 서버로 가는지 확인해야 한다.
+    File f2(fileName);
     LARGE_INTEGER li2;
     apiGetFileSizeEx(f2, &li2);
     f2.CloseHandle();
@@ -121,7 +121,7 @@ void Test_SetEndOfFileAndGetFileSize(const LONGLONG& jQuadPart, DWORD dwMoveMeth
 
 void Test_SetEndOfFileAndGetFileSize2()
 {
-    DEF_TESTLOG_T("Test_SetEndOfFileAndGetFileSize2 : 파일크기를 확장 ");
+    DEF_TESTLOG_T("Test_SetEndOfFileAndGetFileSize2");
 
     wstring fileName = GetTestFileName();
     BOOL fOk = MakeFile(log, fileName);
@@ -155,9 +155,8 @@ void Test_SetEndOfFileAndGetFileSize2()
         apiGetFileSizeEx(f, &li);
     }
 
-    Sleep(5000); // 캐시 제거
+    Sleep(5000);
 
-    // 서버로 가는지 확인해야 한다.
     LARGE_INTEGER li2;
     apiGetFileSizeEx(f2, &li2);
     f2.CloseHandle();

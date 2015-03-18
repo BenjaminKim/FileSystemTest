@@ -239,19 +239,19 @@ void AllApiFunctionTest()
     Test_CopyFile_All();
     Test_CopyFileEx_All();
     Test_MoveFile_All();
-    Test_MoveFileEx_All(); //테스트 수행을 잘 하지만 너무 오래 걸린다. bizhard ICFS에서 모든 테스트에 통과.
+    Test_MoveFileEx_All(); // Too long running time.
     Test_MoveDirectory_All();
-    Test_DeleteFile_All(); //테스트 수행을 잘 하지만 너무 오래 걸린다. bizhard ICFS에서 모든 테스트에 통과.
+    Test_DeleteFile_All(); // Too long running time.
     Test_SetFileInformationByHandleAll();
     Test_GetFinalPathNameByHandleAll();  
     Test_GetFileSizeEx();
     Test_GetFileSize();
     Test_GetFileType();
     //Test_GetCurrentDirectory();
-    Test_SetFileAttributesAll(); //테스트 수행을 잘 하지만 너무 오래 걸린다. bizhard ICFS에서 모든 테스트에 통과.
+    Test_SetFileAttributesAll(); // Too long running time.
     Test_CreateAndRemoveDirecotryAll();
     //Test_GetVolumeInformationAll();
-    Test_CreateDirectoryExAll(); //테스트 수행을 잘 하지만 너무 오래 걸린다. bizhard ICFS에서 모든 테스트에 통과.
+    Test_CreateDirectoryExAll(); // Too long running time.
     //Test_WriteFileAll();
 
     /*Test_WriteAndGetFileSize2();
@@ -432,7 +432,7 @@ int _tmain(int argc, TCHAR* argv[])
         AllApiFunctionTest();
     }
 
-    // 맨 밑에 둘것
+    // This should be at bottom.
     if (vm.count("statistics"))
     {
         PrintApiStatistics(vFunction);

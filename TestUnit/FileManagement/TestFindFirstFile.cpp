@@ -11,7 +11,7 @@ using namespace std;
 
 void Test_FindFirstFile_ManyFiles_With_Wildcard(size_t fileNum)
 {
-    DEF_TESTLOG_T("Test_FindFirstFile_ManyFiles_With_Wildcard, 많은 파일을 생성 후 와일드 카드를 사용해서 탐색테스트");
+    DEF_TESTLOG_T("Test_FindFirstFile_ManyFiles_With_Wildcard");
 
     vector<wstring> vCreateFiles;
     wstring dirname = L"\\" + GetTestFileName() + L"ManyFiles";
@@ -71,7 +71,7 @@ void Test_FindFirstFile_ManyFiles_With_Wildcard(size_t fileNum)
 
 void Test_FindFirstFile_ManyFiles_With_NoWildcard(size_t fileNum)
 {
-    DEF_TESTLOG_T("Test_FindFirstFile_ManyFiles_With_NoWildcard, 매우 많은 파일을 생성 후 탐색 테스트. 와일드 카드 없이 하나씩 찾아본다.");
+    DEF_TESTLOG_T("Test_FindFirstFile_ManyFiles_Without_Wildcard");
 
     vector<wstring> vCreateFiles;
     wstring dirname = L"\\" + GetTestFileName() + L"ManyFiles";
@@ -133,7 +133,7 @@ void Test_FindFirstFile_ManyFiles_With_NoWildcard(size_t fileNum)
 
 void Test_FindFirstFile_Directory_With_Wildcard(size_t dirNum)
 {
-    DEF_TESTLOG_T("Test_FindFirstFile_FindALotOfFiles, 많은 파일을 생성 후 와일드 카드를 사용해서 탐색테스트");
+    DEF_TESTLOG_T("Test_FindFirstFile_FindALotOfFiles_With_Wildcard");
 
     vector<wstring> vCreateFiles;
     wstring dirname = L"\\" + GetTestFileName() + L"ManyFiles";
@@ -192,7 +192,7 @@ void Test_FindFirstFile_Directory_With_Wildcard(size_t dirNum)
 
 void Test_FindFirstFile_Directory_With_NoWildcard(size_t dirNum)
 {
-    DEF_TESTLOG_T("Test_FindFirstFile_Directory_With_NoWildcard, 매우 많은 파일을 생성 후 탐색 테스트. 와일드 카드 없이 하나씩 찾아본다.");
+    DEF_TESTLOG_T("Test_FindFirstFile_Directory_Without_Wildcard");
 
     vector<wstring> vCreateFiles;
     wstring dirname = L"\\" + GetTestFileName() + L"ManyFiles";
@@ -253,7 +253,7 @@ void Test_FindFirstFile_Directory_With_NoWildcard(size_t dirNum)
 
 void Test_FindFirstFile_DeletePending()
 {
-    DEF_TESTLOG_T("Test_FindFirstFile_DeletePending, Delete pending된 상태의 파일이 어떻게 보여지는지 테스트");
+    DEF_TESTLOG_T("Test_FindFirstFile_DeletePending");
 
     std::wstring fileName = GetTestFileName(L"Test_FindFirstFile_DeletePending");
     
@@ -320,7 +320,7 @@ void Test_FindFirstFile_DeletePending()
 
 void Test_FindFirstFile_CreateManyFiles_And_Listring_With_Wildcard(size_t fileNum, size_t listCount)
 {
-    DEF_TESTLOG_T("Test_FindFirstFile_CreateManyFiles_And_Listring_With_Wildcard, 많은 파일을 생성 후 와일드 카드를 사용해서 탐색테스트");
+    DEF_TESTLOG_T("Test_FindFirstFile_CreateManyFiles_And_Listring_With_Wildcard");
 
     vector<wstring> vCreateFiles;
     wstring dirname = L"\\" + GetTestFileName() + L"ManyFiles";

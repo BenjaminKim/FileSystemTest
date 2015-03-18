@@ -22,8 +22,7 @@ public:
     static void SetRunningTime(const SYSTEMTIME& s, const SYSTEMTIME& e);
     
 protected:
-    ///컴파일러 경고 메세지 회피.
-    ///할당 연산자가 필요해질 때 구현 하도록 한다.
+    /// workaround compiler warning.
     TestLog& operator=(const TestLog&);
 
 private:

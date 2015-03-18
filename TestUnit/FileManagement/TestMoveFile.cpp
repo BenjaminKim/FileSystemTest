@@ -11,7 +11,7 @@ using namespace std;
 
 void Test_MoveFile_Normal()
 {
-    DEF_TESTLOG_T("Test_MoveFile_Normal, 기본 파일 이동 테스트");
+    DEF_TESTLOG_T("Test_MoveFile_Normal, Basic file moving test.");
 
     const wstring pSrcFileName = GetSrcFileName();
     const wstring pDstFileName = GetDstFileName();
@@ -44,7 +44,7 @@ void Test_MoveFile_Normal()
 
 void Test_MoveFile_NoExistingSrc()
 {
-    DEF_TESTLOG_T("Test_MoveFile_NoExistingSrc, 존재하지 않는 파일을 이동 시도");
+    DEF_TESTLOG_T("Test_MoveFile_NoExistingSrc, Trying to move 'not existing file path'");
 
     const wstring pSrcFileName = GetSrcFileName();
     const wstring pDstFileName = GetDstFileName();
@@ -53,7 +53,7 @@ void Test_MoveFile_NoExistingSrc()
     {
         if(!uDeleteFile(pSrcFileName.c_str()))
         {
-            log.GetStream(TestLog::MT_ERROR) << L"존재하는 Cannot delete the file." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot delete the file." << endl;
             return;
         }
     }
@@ -80,7 +80,7 @@ void Test_MoveFile_NoExistingSrc()
 
 void Test_MoveFile_SharingViolationSrcShareMode(DWORD dwShareMode)
 {
-    DEF_TESTLOG_T("Test_MoveFile_SharingViolationSrc, 원본파일의 공유 권한 테스트");
+    DEF_TESTLOG_T("Test_MoveFile_SharingViolationSrc");
     log.GetStream(TestLog::MT_MESSAGE) << L"dwShareMode " << apiCreateFile.GetString_dwShareMode(dwShareMode);
 
     const wstring pSrcFileName = GetSrcFileName();
@@ -137,7 +137,7 @@ void Test_MoveFile_SharingViolationSrc()
 
 void Test_MoveFile_ExistingDst()
 {
-    DEF_TESTLOG_T("Test_MoveFile_ExistingDst, 존재하는 목적파일이 있을 경우");
+    DEF_TESTLOG_T("Test_MoveFile_ExistingDst");
 
     const wstring pSrcFileName = GetSrcFileName();
     const wstring pDstFileName = GetDstFileName();
@@ -176,7 +176,7 @@ void Test_MoveFile_ExistingDst()
 
 void Test_MoveFile_ExistingDstSharingViolationShareMode(DWORD dwShareMode)
 {
-    DEF_TESTLOG_T("Test_MoveFile_ExistingDstSharingViolationShareMode, 목적파일의 공유 권한에 따른 테스트");
+    DEF_TESTLOG_T("Test_MoveFile_ExistingDstSharingViolationShareMode");
     log.GetStream(TestLog::MT_MESSAGE) << L"dwShareMode " << apiCreateFile.GetString_dwShareMode(dwShareMode);
 
 
@@ -250,7 +250,7 @@ void Test_RenameFile_ShareAll()
 
 void Test_RenameFile_Share(DWORD dwShareMode)
 {
-    DEF_TESTLOG_T("Test_RenameFile_Share, 공유 권한에 따른 이름 변경 테스트");
+    DEF_TESTLOG_T("Test_RenameFile_Share, Renaming test by sharing attributes.");
     log.GetStream(TestLog::MT_MESSAGE) << L"dwShareMode " << apiCreateFile.GetString_dwShareMode(dwShareMode);
 
     wstring fileName = GetTestFileName(L"Test_RenameFile_Share");
@@ -265,14 +265,14 @@ void Test_RenameFile_Share(DWORD dwShareMode)
         File f1(fileName, dwShareMode);
         if((HANDLE)f1 == INVALID_HANDLE_VALUE)
         {
-            log.GetStream(TestLog::MT_ERROR) << L"파일을 열 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot open the file." << endl;
             return;
         }
 
         fOk = apiMoveFile(fileName.c_str(), (L"RE_" + fileName).c_str());
         if(!fOk)
         {
-            log.GetStream(TestLog::MT_ERROR) << L"파일 이름을 변경할 수 없습니다." << endl;
+            log.GetStream(TestLog::MT_ERROR) << L"Cannot rename the file." << endl;
         }
     }
 

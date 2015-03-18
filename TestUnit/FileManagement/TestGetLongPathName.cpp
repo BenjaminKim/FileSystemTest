@@ -6,7 +6,7 @@ using namespace std;
 
 void Test_GetLongPathName_DoesntExistFile()
 {
-    DEF_TESTLOG_T("GetLongPathName, 존재하지 않는 파일에 대해서 쿼리");
+    DEF_TESTLOG_T("GetLongPathName_from_doesnt_existing_file");
     wstring fileName = GetTestFileName();
 
     DWORD e;
