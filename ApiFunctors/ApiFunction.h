@@ -1,5 +1,5 @@
 #pragma once
-
+extern bool __apilog;
 std::wstring GetStringPSTR(LPCWSTR p);
 std::wstring GetStringPPSTR(const wchar_t * const * pp);
 //std::wstring GetStringLPFILETIME(LPFILETIME ft);
@@ -37,7 +37,7 @@ class ApiFunction
 {
 public:
     ApiFunction(std::wostream& out = std::wcout) : output_(out), 
-        enableLog_(true),
+        enableLog_(__apilog),
         printDuration_(false),
         printDateTime_(false),
         elapsedtime_(0)

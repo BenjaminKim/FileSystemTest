@@ -1,28 +1,45 @@
 #include "stdafx.h"
 #include "TestLog.h"
+#include <iostream>
+#include <iomanip>
 
 size_t TestLog::caseN_ = 0;
 size_t TestLog::specificCase_ = 0;
 SYSTEMTIME TestLog::starttime_ = { 0 };
 SYSTEMTIME TestLog::endtime_ = { 0 };
 bool TestLog::fUseTimer_ = false;
+bool TestLog::minimalOutput_ = false;
 
 TestLog::TestLog(std::wostream& output, const std::wstring& testName)
     : output_(output)
     , testName_(testName)
     , success_(false)
 {
-    output_ << L"(Case" << caseN_ << L")[" << testName_ << L"]: Start." << std::endl;
+    if (TestLog::minimalOutput_ == false)
+    {
+        output_ << L"(Case" << caseN_ << L")[" << testName_ << L"]: Start." << std::endl;
+    } 
 }
 
 TestLog::~TestLog()
 {
-    output_ << L"(Case" << caseN_ << L")[" << testName_ << L"]: End. " <<
-        ((success_) ? L"Success" : L"Fail" ) << std::endl << std::endl;
+    if (TestLog::minimalOutput_ == false)
+    {
+        output_ << L"(Case" << caseN_ << L")[" << testName_ << L"]: End. " <<
+            ((success_) ? L"Success" : L"Fail") << std::endl << std::endl;
+    }
+    else
+    {
+        output_ << L"(Case " << std::setfill(L'0') << std::setw(5) << caseN_ << L") " << ((success_) ? L"OK" : L"KO") << L" [" << testName_ << L"]" << std::endl;
+    }
 }
 
 std::wostream& TestLog::GetStream(MessageType msgType)
 {
+    if (TestLog::minimalOutput_ == true)
+    {
+        return std::wcerr;
+    }
     switch(msgType)
     {
     case MT_NONE:

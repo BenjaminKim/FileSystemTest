@@ -20,6 +20,11 @@ using namespace std;
 #define new DEBUG_NEW
 #endif
 
+extern "C"
+{
+    bool __apilog;
+}
+
 BOOL SetBasePath(const std::wstring& s)
 {
     if(::SetCurrentDirectoryW(s.c_str()))
@@ -326,6 +331,7 @@ int _tmain(int argc, TCHAR* argv[])
         ("openfile-test,o", "The program will run only for testing open files.")
         ("starttime", boost::program_options::value< std::string >(), "The program will run on specified time.")
         ("endtime", boost::program_options::value< std::string >(), "The program will run on specified time.")
+        ("quiet,q", "print only test number and result in stdout (stderr still have some detail) to compare results on 2 file system")
         ;
 
     variables_map vm;
@@ -348,6 +354,12 @@ int _tmain(int argc, TCHAR* argv[])
         cout << "Version 1.\n";
         return 0;
     }
+    if (vm.count("quiet"))
+    {
+        TestLog::minimalOutput_ = true;
+        __apilog = false;
+    }
+
     if(vm.count("starttime") && vm.count("endtime"))
     {
         cout << "The program will run during the specific time. " << vm["starttime"].as<std::string>() << " ~ " << vm["endtime"].as<std::string>() << std::endl;
