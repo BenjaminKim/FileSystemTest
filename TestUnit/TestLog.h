@@ -35,6 +35,7 @@ public:
     static SYSTEMTIME starttime_;
     static SYSTEMTIME endtime_;
     static bool fUseTimer_;
+    static bool minimalOutput_;
 };
 
 #define DEF_TESTLOG_T(x) if(TestLog::IsSkip()) { return; } TestLog log(wcout, _T(x))
