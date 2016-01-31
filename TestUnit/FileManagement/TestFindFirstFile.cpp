@@ -375,9 +375,9 @@ void Test_FindFirstFile_CreateManyFiles_And_Listring_With_Wildcard(size_t fileNu
         }   
     }
 
-    for(size_t i = 0; i < vCreateFiles.size(); ++i)
+    for(size_t j = 0; j < vCreateFiles.size(); ++j)
     {
-        BOOL fOk = uDeleteFile((GetWidTestBasePath() + dirname + L"\\" + vCreateFiles[i]).c_str());
+        BOOL fOk = uDeleteFile((GetWidTestBasePath() + dirname + L"\\" + vCreateFiles[j]).c_str());
         if(!fOk)
         {
             log.GetStream(TestLog::MT_ERROR) << L"uDeleteFile error." << endl;
