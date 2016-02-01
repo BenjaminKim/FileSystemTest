@@ -3,14 +3,35 @@
 ### Execution
 
 ```
-# -t: Print datetime
-# -d: Print Api duration
-# -s: Calculate statistics
-# -f: Full logging
-# And the first argument `C:\test_base_directory` is a base directory you want to test.
-# In this example, it points a NTFS volume. But you can point and test any filesystems you want.(You need to mount it.)
-C:\YourPath> FileSystemTest.exe C:\test_base_directory -t -d -s -f
+FileSystemTest.exe [base_directory] [option] 
+base_directory is mandatory it is the path where the tests will be runned
+option list
+#  -v [ --version ]          print the version number
+#  -d [ --duration ]         print the api duration
+#  -t [ --time ]             print the output with time as prefix of lines
+#  -c [ --case ] arg         Run only the specified case.
+#  -s [ --statistics ]       print api statistics
+#  -f [ --full-log ]         print everything include utility functors.
+#  -i [ --io-test ]          The program will run only for testing io performance.
+#  -r [ --createfile-test ]  The program will run only for testing createfile.
+#  -l [ --filelist-test ]    The program will run only for testing filelist.
+#  -o [ --openfile-test ]    The program will run only for testing open files.
+#  --starttime arg           The program will run on specified time.
+#  --endtime arg             The program will run on specified time.
+#  -q [ --quiet ]            print only test number and result in stdout (stderrstill have some detail) to compare results on 2 file system
+
+
 ```
+
+### Examples
+
+#### basic example with most used args
+```
+And the first argument `C:\test_base_directory` is a base directory you want to test.
+In this example, it points a NTFS volume. But you can point and test any filesystems you want.(You need to mount it.)
+```
+> 
+C:\YourPath> FileSystemTest.exe C:\test_base_directory -t -d -s -f
 
 ```
 Current directory path has been set as C:\test_base_directory
@@ -338,4 +359,19 @@ Count : 714
 Operation per sec : 396.677975572763
 Avg : 0.002520936532
 StdDev : 0.003741849575
+```
+
+
+#### Example integrated in a tests suite
+> 
+C:\YourPath> FileSystemTest.exe C:\test_base_directory -q
+
+```
+Current directory path has been set as C:\test_base_directory
+0x00002020[FILE_ATTRIBUTE_ARCHIVE, FILE_ATTRIBUTE_NOT_CONTENT_INDEXED]
+(Case 00001) OK [Calling CreateFile with dwDesiredAccess, dwCreateDisposition.]
+(Case 00002) OK [Calling CreateFile with dwDesiredAccess, dwCreateDisposition.]
+(Case 00003) OK [Calling CreateFile with dwDesiredAccess, dwCreateDisposition.]
+(Case 00004) KO [Calling CreateFile with dwDesiredAccess, dwCreateDisposition.]
+...
 ```
