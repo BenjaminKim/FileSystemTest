@@ -1,4 +1,4 @@
-#pragma once;
+#pragma once
 
 bool MakeFile(TestLog& log, const std::wstring& lpFileName);
 bool MakeFile(TestLog& log, const std::wstring& lpFileName, size_t iFileSizeKB);

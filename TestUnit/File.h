@@ -1,4 +1,4 @@
-#pragma once;
+#pragma once
 
 #include "FileManagement/ApiCreateFile.h"
 #include "FileManagement/ApiCloseHandle.h"
