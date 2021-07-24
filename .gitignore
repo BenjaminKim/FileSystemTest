@@ -31,3 +31,4 @@ FileSystemTest.sdf
 ipch/
 packages/
 FileSystemTest.VC.opendb
+.vs/
