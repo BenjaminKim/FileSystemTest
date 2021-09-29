@@ -34,16 +34,16 @@ option list
 # (You need to mount your filesystem first.)
 # In this example, it points a `NTFS` volume(C:)
 C:\YourPath> FileSystemTest.exe C:\test_base_directory -t -d -s -f
-
-# This command tries all APIs on the `NTFS` using all combinations of parameters and prints the results.
-# The result of the API can be either success or failure. API fails doesn't mean the test failed.
-# You should also run this test on your filesystem and compare it with NTFS's result using any `diff` tool you prefer.
-# If the result is different, your file system is not NTFS compliant and applications will not work properly.
-
-# If your file system is a network file system, it is better to compare it to the SMB(Windows Network Drive) rather than to NTFS.
 ```
 
 ## Result
+The above command tries all APIs on the `C:\test_base_directory` (NTFS volume in this case) using all combinations of parameters and prints the results.  
+The result of the API can be either success or failure. (API fails doesn't mean the test failed)  
+You should also run this test on *your own filesystem* and compare it with NTFS's result using any `diff` tool you prefer.  
+If the result is different, your file system is not NTFS compliant and applications will not work properly.  
+
+If your file system is a network file system, it is better to compare it to the SMB(Windows Network Drive) rather than to NTFS.
+
 ```
 Current directory path has been set as C:\test_base_directory
 0x00002020[FILE_ATTRIBUTE_ARCHIVE, FILE_ATTRIBUTE_NOT_CONTENT_INDEXED]
