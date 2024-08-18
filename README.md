@@ -1,8 +1,11 @@
 # FileSystemTest
 
-Are you building your own filesystem?  
-It is very difficult to test a filesystem.  
-Don't worry. `FileSystemTest` will help you.
+Want to create your own file system?  
+And it has to be compatible with Windows?  
+That's what `FileSystemTest` is designed for.
+
+Creating a filesystem that is fully compatible with Windows is incredibly difficult.  
+`FileSystemTest` will help you a lot.
 
 ### Execution
 
