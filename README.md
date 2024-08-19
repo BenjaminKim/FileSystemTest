@@ -1,18 +1,73 @@
 # FileSystemTest
 
-Want to create your own file system?  
-And it has to be compatible with Windows?  
+Want to create your own file system? And it has to be compatible with Windows?  
 That's what `FileSystemTest` is designed for.
 
 Creating a filesystem that is fully compatible with Windows is incredibly difficult.  
 `FileSystemTest` will help you a lot.
 
+## How does it work?
+
+If you're creating a network file system, what do you need to do to make it compatible with the Windows APIs?
+
+Windows has several File APIs
+* CreateFile
+* ReadFile
+* WriteFile
+* CloseFile
+* MoveFile
+and so on.
+
+Imagine what would happen if you double-clicked the `docx` file inside your filesystem volume in Windows Explorer.  
+If you have Word installed, it will probably open Word.  
+Word would **open** your file, **read** it, **change the time**, **create a temporary file**, and a whole bunch of other things.  
+You just double-clicked it to open the document.
+
+Matching the results of these APIs with the results of NTFS is what makes it compatible.  
+So what should we expect to see when we put something in?
+
+For example, something like this.
+* What happens if you call `RemoveDirectory` on a directory that has files in it? Should it delete the directory and all the files it contains and return success? Your filesystem might do that, but that's incompatible with NTFS, because NTFS requires you to return `ERROR_DIR_NOT_EMPTY`, which is `STATUS_DIRECTORY_NOT_EMPTY` at the kernel level.
+* Calling `DeleteFile` while a file is open should return `STATUS_ACCESS_DENIED`.
+
+These are the rules of NTFS.  
+You should be familiar with these rules so that you can make your file system NTFS-compatible.  
+If you don't know these rules, that's okay, because `FileSystemTest` has a test case for that.
+
+## How can I use it?
+`FileSystemTest` has a lot of test cases.  
+It calls almost all of the File APIs with different inputs and outputs the results.
+
+You can use it to 
+1. Run the tests on an NTFS(or SMB) file system and save the output file.
+2. Run the tests on your own file system and save the output file.
+3. Compare the output files in 1 and 2 with your favorite diff tool. (I use `WinMerge`)
+4. If there is something difference, fix your filesystem to match the output in NTFS(or SMB) (the correct answer).
+
+When all things are equal, you can say that we have created a file system that is fully compatible with NTFS(or SMB).  
+(But it's never easy to make everything equal).
+
+Filesystems are very complex. If you write one line of code wrong, you'll see your test cases break like crazy.  
+That's why `FileSystemTest` is so nice. Imagine how hard it would be if you tried to test this manually.
+
+Note that `FileSystemTest` doesn't have all the test cases.  
+Please add any tests that are missing!
+
+## NTFS compatible vs SMB compatible?
+If you're creating a network file system, you should follow SMB, not NTFS.  
+NTFS and SMB have subtle differences in input and output. SMB is the way to go.  
+SMB is standard Windows network filesystem.
+
 ### Execution
 
+```FileSystemTest.exe [base_directory] [option]```
+
+`base_directory` is a required value. Specify which directory on which volume.  
+For example, you could specify `C:\my_test`, which is probably an NTFS directory.  
+And you could specify `X:\my_test`, if you mount Windows network filesystem(SMB) to `X` volume.  
+If you mounted your file system to drive `Z`, you might say `Z:\my_test`.
+
 ```
-FileSystemTest.exe [base_directory] [option] 
-base_directory is mandatory it is the path where the tests will be runned
-option list
 #  -v [ --version ]          print the version number
 #  -d [ --duration ]         print the api duration
 #  -t [ --time ]             print the output with time as prefix of lines
@@ -32,15 +87,14 @@ option list
 ## Basic Example
 
 ```bash
-# `C:\test_base_directory` is a filesystem base directory you want to test.
+# `C:\my_test` is a filesystem base directory you want to test.
 # It can be a NTFS volume, or Windows network(SMB) or your own filesystem.
-# (You need to mount your filesystem first.)
 # In this example, it points a `NTFS` volume(C:)
-C:\YourPath> FileSystemTest.exe C:\test_base_directory -t -d -s -f
+C:\YourPath> FileSystemTest.exe C:\my_test -t -d -s -f
 ```
 
 ## Result
-The above command tries all APIs on the `C:\test_base_directory` (NTFS volume in this case) using all combinations of parameters and prints the results.  
+The above command tries all APIs on the `C:\my_test` (NTFS volume in this case) using all combinations of parameters and prints the results.  
 The result of the API can be either success or failure. (API fails doesn't mean the test failed)  
 You should also run this test on *your own filesystem* and compare it with NTFS's result using any `diff` tool you prefer.  
 If the result is different, your file system is not NTFS compliant and applications will not work properly.  
